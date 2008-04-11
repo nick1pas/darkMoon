@@ -3,7 +3,7 @@
 Server modding by dark-Moon Team
 
 Branch: Interlude rev 1.0 (оффициальный релиз)
-Rev Gameserver...: v1.1 
+Rev Gameserver...: v1.0 
 Rev Datapack.....: v1.0
 Rev Loginserver..: v1.0 
 
@@ -14,7 +14,6 @@ Rev Loginserver..: v1.0
  - оптимизировать/перевести конфиги 
                              
 
-				..:>Rev v2.3<:..
 - add New Event (требуется уникальный патч)
 - fix Glad skills (critical chance)
 - fix Lightning Strike (set effectpower = 50)
