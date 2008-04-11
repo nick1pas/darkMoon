@@ -1,0 +1,1 @@
+ALTER TABLE `tvt` ADD `maxPlayers` INT( 4 ) NOT NULL DEFAULT '0';

@@ -1,0 +1,1 @@
+ALTER TABLE `tvt` ADD `minPlayers` INT( 4 ) NOT NULL DEFAULT '0';

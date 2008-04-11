@@ -1,0 +1,1 @@
+ALTER TABLE `tvt` ADD `delayForNextEvent` BIGINT NOT NULL default '0';

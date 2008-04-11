@@ -1,0 +1,1 @@
+ALTER TABLE characters CHANGE `lvl_joined_academy` `lvl_joined_academy` int(2) NOT NULL default '0';
