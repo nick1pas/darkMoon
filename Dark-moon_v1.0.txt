@@ -1,0 +1,84 @@
+
+
+Server modding by dark-Moon Team
+
+Branch: Interlude rev 1.0 (оффициальный релиз)
+Rev Gameserver...: v1.1 
+Rev Datapack.....: v1.0
+Rev Loginserver..: v1.0 
+
+Что планируется в rev v1.1:
+ - довести до ума symbol skills и магические скилы 80 лвл
+ - оптимизировать ядро
+ - внедрить новые эффекты
+ - оптимизировать/перевести конфиги 
+                             
+
+				..:>Rev v2.3<:..
+- add New Event (требуется уникальный патч)
+- fix Glad skills (critical chance)
+- fix Lightning Strike (set effectpower = 50)
+- add Fortress siege (//fos сделан как евент)
+- add ViP (//vip)
+- add DM  (//DM)
+- add CTF (//ctf)
+- sync skills stats 3500-3599.
+- sync weapons stats 6600-6699.
+- sync skills stats:
+              0000-0099, 
+              0100-0199, 
+              0200-0299, 
+              0300-0399, 
+              0400-0499, 
+              1300-1399.
+- add Effect Symbol skills (Ice Age Project, no reteil info)
+- fix Hamstring shot
+- add effect skill in HS location
+- fix Might and Greater Might теперь дают эффект
+- optimezed server
+- add Reteil effect skills: Mirage, Dodge, Counterattack.
+- fix buffer (bless Soul & bless body бафаются при индивидуальном выборе)
+- fix система нанесения дамаги с лука, обсчет рейта частоты критов (лука/дагер классы при фулл бафе)
+- fix skill Mortal strike
+- fix skill Critiсal Blow
+- fix skill Blinding Blow
+- add effect HealCp, optimized server source. 
+- add GMshop (fix)
+- add Raid Telepoter (NPC id = 9999999) (пересматрите таблицы телепорт)
+- add Aden Luxory shop
+- add WTT weapon B-grade
+- add table Forced
+- add fix Sepulchers_spawnlist
+- fix gremlin
+- add intial items (ng grade to srart level) (*fixed*)
+- fix bluff (reusedelay = 10 sec)
+- fix Dark Vortex (skillType = DRAIN) (need more support)
+- add Multisell to Blacksmith of Mammon (dynasty weapon)(*fixed*)
+- add skill_trees table fix
+- add chatfilter (rus and eng words)
+- add Noble quest (fix). Need:
+                       	 - 800kk aden
+                         - 1 subclass 75+
+                        GREAT YOU ARE "NOBLESS"
+
+- event "Angel & Demon". They sell unicum armor & weapon (angel coin)
+- add epic armor 
+- add dynasty armor & weapon
+- add skills to event NPC 
+- add NPC for event
+- add drop event NPC
+- all sql in server rar
+- Fix Event Guard (Guard type L2Monster)
+модернизация ядра, внедрение новых эффектов скилов
+оптимизация конфигов, поиск неработающего.
+
+may be trouble to NPC "demon" & "angel"
+
+Addon instaler in your folder
+
+
+Dark-Moon PROJECT
+
+Plegas - core (project administrator icq 371-943-300)
+ZetX   - WebMaster
+SaTa   - WebMaster
