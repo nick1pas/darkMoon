@@ -1,1 +1,0 @@
-ALTER TABLE `custom_npc` ADD `absorb_type` enum('FULL_PARTY','LAST_HIT','PARTY_ONE_RANDOM') NOT NULL DEFAULT 'LAST_HIT';

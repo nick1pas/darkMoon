@@ -1,1 +1,0 @@
-ALTER TABLE `characters` ADD `chatban_reason` varchar(255) NOT NULL default '';

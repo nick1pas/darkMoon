@@ -1,1 +1,0 @@
-ALTER TABLE `tvt` ADD `npcHeading` INT( 11 ) NOT NULL DEFAULT '0' AFTER `npcZ` ;
