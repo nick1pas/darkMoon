@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Life Stone Trader by MrAnterson -->
+<list>
+  <!-- 1 46-->
+  <item id="1">
+   <ingredient id="57" count="10000000" isTaxIngredient="true"/>
+<production id="8753" count="1"/>
+  </item>
+<!-- 2 49-->
+  <item id="2">
+<ingredient id="57" count="10000000" isTaxIngredient="true"/>
+<production id="8754" count="1"/>
+  </item>
+<!-- 3 52-->
+  <item id="3">
+<ingredient id="57" count="10000000" isTaxIngredient="true"/>
+<production id="8755" count="1"/>
+  </item>
+<!-- 4 55-->
+  <item id="4">
+<ingredient id="57" count="10000000" isTaxIngredient="true"/>
+<production id="8756" count="1"/>
+  </item>
+<!-- 5 58-->
+  <item id="5">
+<ingredient id="57" count="10000000" isTaxIngredient="true"/>
+<production id="8757" count="1"/>
+  </item>
+<!-- 6 61-->
+  <item id="6">
+<ingredient id="57" count="10000000" isTaxIngredient="true"/>
+<production id="8758" count="1"/>
+  </item>
+<!-- 7 64-->
+  <item id="7">
+<ingredient id="57" count="10000000" isTaxIngredient="true"/>
+<production id="8759" count="1"/>
+  </item>
+<!-- 8 67-->
+  <item id="8">
+<ingredient id="57" count="10000000" isTaxIngredient="true"/>
+<production id="8760" count="1"/>
+  </item>
+<!-- 9 70-->
+  <item id="9">
+<ingredient id="57" count="10000000" isTaxIngredient="true"/>
+<production id="8761" count="1"/>
+  </item>
+<!-- 10 76-->
+  <item id="10">
+<ingredient id="57" count="10000000" isTaxIngredient="true"/>
+<production id="8762" count="1"/>
+  </item>
+<!-- 11 Gemstone C Grade-->
+  <item id="11">
+<ingredient id="57" count="4000" isTaxIngredient="true"/>
+<production id="2131" count="1"/>
+  </item>
+</list>

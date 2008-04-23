@@ -1,0 +1,33 @@
+<html><title>Teleport Menu</title><body>
+<img src="L2UI_CH3.herotower_deco" width=256 height=32><br>
+<table width=260>
+<tr>
+<td width=40><button value="Main" action="bypass -h admin_admin" width=40 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+<td width=180><center><font color="aadd77">Teleport Menu</font></center></td>
+</tr>
+</table><br><br>
+<img src="L2UI.SquareWhite" width=260 height=1>
+<img src="L2UI.SquareBlank" width=260 height=4>
+<br>
+<table width=270>
+<tr><td><font color="aadd77">Select destination:</font></td></tr>
+<tr><td><a action="bypass -h admin_help tele/towns/towns.htm">        <font color="LEVEL">Towns</font></a></td><td>        <a action="bypass -h admin_help tele/arenas/arenas.htm">        <font color="LEVEL">Arenas</font></a></td></tr>
+<tr><td><a action="bypass -h admin_help tele/castles/castles.htm">    <font color="LEVEL">Castles</font></a></td><td>      <a action="bypass -h admin_help tele/raid/raid.htm">            <font color="LEVEL">Raid Bosses</font></a></td></tr>
+<tr><td><a action="bypass -h admin_help tele/areas/areas.htm">        <font color="LEVEL">Other Areas</font></a></td><td>  <a action="bypass -h admin_help tele/dungeons/dungeons.htm">    <font color="LEVEL">Dungeons</font></a></td><tr>
+<tr><td><a action="bypass -h admin_help tele/catacombs/catacombs.htm"><font color="LEVEL">Catacombs</font></a></td><td>    <a action="bypass -h admin_help tele/necropolis/necropolis.htm"><font color="LEVEL">Necropolis</font></a></td></tr>
+</table><br><br>
+<center>
+<button value="More" action="bypass -h admin_tele" width=50 height=15 back="sek.cbui94" fore="sek.cbui92"><br><br>
+Move to given Coords:
+<table width=260><tr>
+<td width=15>X:</td><td><edit var="char_cord_x" width=55></td>
+<td width=15>Y:</td><td><edit var="char_cord_y" width=55></td>
+<td width=15>Z:</td><td><edit var="char_cord_z" width=55></td>
+<td><button value="Go" action="bypass -h admin_move_to $char_cord_x $char_cord_y $char_cord_z" width=55 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+</tr></table>
+<br><br><br>
+<img src="L2UI.SquareWhite" width=260 height=1>
+<img src="L2UI.SquareBlank" width=260 height=4>
+<br>
+</center>
+</body></html>

@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!-- Coin Shop -->
+
+<list>
+
+
+  <!-- Armor -->
+  <item id="32">
+    <ingredient id="9999" count="3" enchant="0"/>
+    <production id="6373" count="1" enchant="0"/>
+  </item>
+
+  <!-- Armor -->
+  <item id="33">
+    <ingredient id="9999" count="3" enchant="0"/>
+    <production id="6374" count="1" enchant="0"/>
+  </item>
+
+  <!-- Armor -->
+  <item id="34">
+    <ingredient id="9999" count="3" enchant="0"/>
+    <production id="6375" count="1" enchant="0"/>
+  </item>
+
+  <!-- Armor -->
+  <item id="35">
+    <ingredient id="9999" count="3" enchant="0"/>
+    <production id="6376" count="1" enchant="0"/>
+  </item>
+
+  <!-- Armor -->
+  <item id="36">
+    <ingredient id="9999" count="3" enchant="0"/>
+    <production id="6377" count="1" enchant="0"/>
+  </item>
+
+  <!-- Armor -->
+  <item id="37">
+    <ingredient id="9999" count="3" enchant="0"/>
+    <production id="6378" count="1" enchant="0"/>
+  </item>
+
+  <!-- Armor -->
+  <item id="38">
+    <ingredient id="9999" count="3" enchant="0"/>
+    <production id="6379" count="1" enchant="0"/>
+  </item>
+
+  <!-- Armor -->
+  <item id="39">
+    <ingredient id="9999" count="3" enchant="0"/>
+    <production id="6380" count="1" enchant="0"/>
+  </item>
+
+  <!-- Armor -->
+  <item id="40">
+    <ingredient id="9999" count="3" enchant="0"/>
+    <production id="6381" count="1" enchant="0"/>
+  </item>
+
+  <!-- Armor -->
+  <item id="41">
+    <ingredient id="9999" count="3" enchant="0"/>
+    <production id="6382" count="1" enchant="0"/>
+  </item>
+
+  <!-- Armor -->
+  <item id="42">
+    <ingredient id="9999" count="3" enchant="0"/>
+    <production id="6383" count="1" enchant="0"/>
+  </item>
+
+  <!-- Armor -->
+  <item id="43">
+    <ingredient id="9999" count="3" enchant="0"/>
+    <production id="6384" count="1" enchant="0"/>
+  </item>
+
+  <!-- Armor -->
+  <item id="44">
+    <ingredient id="9999" count="3" enchant="0"/>
+    <production id="6385" count="1" enchant="0"/>
+  </item>
+
+  <!-- Armor -->
+  <item id="45">
+    <ingredient id="9999" count="3" enchant="0"/>
+    <production id="6386" count="1" enchant="0"/>
+  </item>
+
+  <!-- Armor -->
+  <item id="46">
+    <ingredient id="9999" count="3" enchant="0"/>
+    <production id="6678" count="1" enchant="0"/>
+  </item>
+
+</list>

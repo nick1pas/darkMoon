@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE list SYSTEM "skills.dtd">
+<list>
+	<skill id="9997" levels="1" name="GM Slow">
+		<set name="power" val="0.0"/>
+		<set name="target" val="TARGET_SELF"/>
+		<set name="skillType" val="NOTDONE"/>
+		<set name="operateType" val="OP_PASSIVE"/>
+		<set name="castRange" val="-1"/>
+		<for>
+		</for>
+	</skill>
+	
+	<skill id="9998" levels="1" name="GM Arena Slow">
+		<set name="power" val="0.0"/>
+		<set name="target" val="TARGET_SELF"/>
+		<set name="skillType" val="NOTDONE"/>
+		<set name="operateType" val="OP_PASSIVE"/>
+		<set name="castRange" val="-1"/>
+		<for>
+		</for>
+	</skill>
+	
+	<skill id="9999" levels="1" name="GM Mass Ressurection">
+		<set name="power" val="0.0"/>
+		<set name="target" val="TARGET_SELF"/>
+		<set name="skillType" val="NOTDONE"/>
+		<set name="operateType" val="OP_PASSIVE"/>
+		<set name="castRange" val="-1"/>
+		<for>
+		</for>
+	</skill>
+</list>
