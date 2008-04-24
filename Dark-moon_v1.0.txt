@@ -2,3 +2,8 @@
 Список изменений:
 -add Custom Event Chalice_to_Harmonies
 -add Custom Event LazyNooblez
+-Update core
+-Update datapack
+-now working Dagger skills 79 lvl
+-orc skills fix
+-Update passive skills
