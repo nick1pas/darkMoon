@@ -150,8 +150,15 @@ public class Disablers implements ISkillHandler
                 ss = true;
                 activeSummon.setChargedSoulShot(L2ItemInstance.CHARGED_NONE);
             }
-        }
-        for (L2Object element : targets) {
+            }
+            else if (activeChar instanceof L2NpcInstance)
+            {
+            bss = ((L2NpcInstance)activeChar).isUsingShot(false);
+            ss = ((L2NpcInstance)activeChar).isUsingShot(true);
+            }
+            
+            for (L2Object element : targets) 
+            {
             // Get a target L2Character targets
             if (!(element instanceof L2Character)) continue;
    
@@ -272,7 +279,9 @@ public class Disablers implements ISkillHandler
                 }
                 case CONFUSION:
                 case DEBUFF:
-                {    
+                {
+                    if (Formulas.getInstance().receiveBlock(target, "debuff")) 
+                        continue;   
                     if (target instanceof L2NpcInstance){
                     target.getAI().notifyEvent(CtrlEvent.EVT_AGGRESSION, activeChar,50);}
                     if (Formulas.getInstance().calcSkillSuccess(activeChar, target, skill, ss, sps, bss))
@@ -635,6 +644,14 @@ public class Disablers implements ISkillHandler
                             int maxfive = 5;
                             for (L2Effect e : effects)
                             { 
+                                // do not delete signet effects!
+                                switch (e.getEffectType())
+                                {
+                                    case SIGNET_GROUND:
+                                    case SIGNET_EFFECT:
+                                        continue;
+                                }
+
                                 switch(e.getSkill().getId())
                                 {
                                     case 4082:
@@ -754,6 +771,7 @@ public class Disablers implements ISkillHandler
                             if (stat == "confusion") negateEffect(target,SkillType.CONFUSION,-1);
                             if (stat == "mute") negateEffect(target,SkillType.MUTE,-1);
                             if (stat == "fear") negateEffect(target,SkillType.FEAR,-1);
+                            if (stat == "root") negateEffect(target,SkillType.ROOT,-1);
                             if (stat == "poison") negateEffect(target,SkillType.POISON,_negatePower);
                             if (stat == "bleed") negateEffect(target,SkillType.BLEED,_negatePower);
                             if (stat == "paralyze") negateEffect(target,SkillType.PARALYZE,-1);
@@ -776,6 +794,10 @@ public class Disablers implements ISkillHandler
                     }//end else
                 }// end case
             }//end switch
+            
+            //Possibility of a lethal strike
+            Formulas.getInstance().calcLethalHit(activeChar, target, skill);
+            
         }//end for
         // self Effect :]
         L2Effect effect = activeChar.getFirstEffect(skill.getId());

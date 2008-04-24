@@ -1088,8 +1088,8 @@ public final class Formulas
 			power *= skill.getSSBoost();
 		
 		//Multiplier should be removed, it's false ??
-		damage += 1.5*attacker.calcStat(Stats.CRITICAL_DAMAGE, damage+power, target, skill);
-		//damage *= (double)attacker.getLevel()/target.getLevel();
+		damage += 1.5*(attacker.calcStat(Stats.CRITICAL_DAMAGE, damage+power, target, skill)
+			* target.calcStat(Stats.CRIT_VULN, target.getTemplate().baseCritVuln, target, skill != null ? skill : null));
 
 		// get the natural vulnerability for the template
 		if (target instanceof L2NpcInstance)
@@ -1190,7 +1190,9 @@ public final class Formulas
             }
         }
         
-        if (crit) damage += attacker.getCriticalDmg(target, damage);
+        if (crit)
+            damage += (attacker.getCriticalDmg(target, damage) *
+                        target.calcStat(Stats.CRIT_VULN, target.getTemplate().baseCritVuln, target, skill));
         if (shld && !Config.ALT_GAME_SHIELD_BLOCKS)
         {
             defence += target.getStat().getShldDef();
@@ -2068,5 +2070,27 @@ public final class Formulas
         }
         
         return false;
-    }    
+    } 
+	     
+      public boolean canEvadeMeleeSkill(L2Character target, L2Skill skill) 
+	    { 
+	        if (!skill.isMagic() && skill.getCastRange() < 100) 
+	        { 
+	                double evade = target.calcStat(Stats.EVADE_MELEE_SKILL, 0, null, null); 
+	                return (Rnd.get(100) < evade); 
+	        } 
+	        return false; 
+	    } 
+	     
+	    public boolean canCancelAttackerTarget(L2Character attacker , L2Character target) 
+	    { 
+	        if (Rnd.get(100) < target.calcStat(Stats.CANCEL_ATTACKER_TARGET, 0, null, null)) 
+	        { 
+	                attacker.setTarget(null); 
+	                attacker.abortAttack(); 
+	                attacker.abortCast(); 
+	                return true; 
+	        } 
+	        return false; 
+	    }    
 }

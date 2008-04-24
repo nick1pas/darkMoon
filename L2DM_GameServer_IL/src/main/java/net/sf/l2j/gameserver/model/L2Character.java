@@ -544,7 +544,8 @@ public abstract class L2Character extends L2Object
                 || (this instanceof L2PcInstance && target.isDead() && !target.isFakeDeath())
                 || !getKnownList().knowsObject(target)
                 || (this instanceof L2PcInstance && isDead())
-                || (target instanceof L2PcInstance && ((L2PcInstance)target).getDuelState() == Duel.DUELSTATE_DEAD))
+                || (target instanceof L2PcInstance && ((L2PcInstance)target).getDuelState() == Duel.DUELSTATE_DEAD)
+                || Formulas.getInstance().canCancelAttackerTarget(this, target))
         {
             // If L2PcInstance is dead or the target is dead, the action is stoped
             getAI().setIntention(CtrlIntention.AI_INTENTION_ACTIVE);
@@ -1892,6 +1893,15 @@ public abstract class L2Character extends L2Object
                 break;
         }
         
+        if (skill.isOffensive() && target instanceof L2Character) 
+	      { 
+	              if (Formulas.getInstance().canCancelAttackerTarget(this, (L2Character)target)) 
+	              { 
+                      getAI().notifyEvent(CtrlEvent.EVT_CANCEL); 
+                      return; 
+	              } 
+        } 
+
         // Notify the AI with AI_INTENTION_CAST and target
         getAI().setIntention(CtrlIntention.AI_INTENTION_CAST, skill, target);
         
@@ -6498,10 +6508,13 @@ public abstract class L2Character extends L2Object
     public boolean reflectSkill(L2Skill skill)
     {
         double reflect = calcStat(skill.isMagic() ? Stats.REFLECT_SKILL_MAGIC : Stats.REFLECT_SKILL_PHYSIC, 0, null, null);
-        if( Rnd.get(100) < reflect)
-            return true;
-        
-        return false;
+        if (!skill.isMagic() && skill.getCastRange() < 100) // is 100 maximum range for melee skills? 
+	      { 
+                double reflectMeleeSkill = calcStat(Stats.REFLECT_SKILL_MELEE_PHYSIC , 0 , null , null); 
+                reflect = (reflectMeleeSkill > reflect) ? reflectMeleeSkill : reflect;  
+        } 
+             
+        return (Rnd.get(100) < reflect);
     }
     
 	protected void refreshSkills()
