@@ -2059,7 +2059,7 @@
   <set name="castRange" val="-1" />
   <set name="effectRange" val="-1"/>
   <for>
-   <effect name="Buff" count="1" val="0" stackOrder="1" stackType="hero">
+   <effect name="Buff" time="30" count="1" val="0" stackOrder="1" stackType="hero">
     <add order="0x40" stat="pDef" val="5400"/>
     <add order="0x40" stat="mDef" val="4050"/>
     <add order="0x40" stat="runSpd" val="5"/>
@@ -2080,11 +2080,10 @@
   <set name="skillType" val="BUFF" />
   <set name="isMagic" val="true" />
   <set name="operateType" val="OP_ACTIVE" />
-  <set name="buffDuration" val="120000" />
   <set name="castRange" val="-1" />
   <set name="effectRange" val="-1"/>
   <for>
-   <effect name="Buff" count="1" val="0" stackOrder="1" stackType="hero">
+   <effect name="Buff" time="120" count="1" val="0" stackOrder="1" stackType="hero">
     <add order="0x40" stat="accCombat" val="8"/>
     <sub order="0x40" stat="rEvas" val="8"/>
     <add order="0x40" stat="pAtk" val="500"/>
