@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="L2Sh'T_Datapack_IL" default="dist" basedir=".">
     <description>
-        This script will build the L2Sh'T Project DataPack.
+        This script will build the Dark-Moon Project DataPack.
     </description>
 	
 	<property name="build" location="build"/>
@@ -73,9 +73,9 @@
 			</filterchain>
 		</copy>
 
-    	<delete file="${build}/L2Sh'T_Datapack_IL.zip"/>
+    	<delete file="${build}/DM_Datapack_IL.zip"/>
     	
-    	<zip destfile="${build}/L2Sh'T_Datapack_IL.zip"
+    	<zip destfile="${build}/DM_Datapack_IL.zip"
              basedir="${build.dist}"/>
 
         <delete dir="${build.dist}"/>
