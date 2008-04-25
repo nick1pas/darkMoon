@@ -7,3 +7,4 @@
 -now working Dagger skills 79 lvl
 -orc skills fix
 -Update passive skills
+-fix core
