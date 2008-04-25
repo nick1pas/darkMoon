@@ -1035,7 +1035,6 @@
       <add order="0x40" stat="reflectSkillMeleePhysic" val="100"/>
     </effect>
   </for>
-  </for>
  </skill>
  
  <skill id="448" levels="1" name="Summon Swoop Cannon">
