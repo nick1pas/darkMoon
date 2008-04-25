@@ -1525,6 +1525,50 @@ public final class Formulas
 		return activeChar.calcStat(Stats.LETHAL_RATE, (baseLethal*((double)activeChar.getLevel()/target.getLevel())), target, null);
 	}
 	
+	    public final boolean calcLethalHit(L2Character activeChar, L2Character target, L2Skill skill)
+    {
+        if (!target.isRaid()
+                && !(target instanceof L2DoorInstance)
+                && !(target instanceof L2NpcInstance && ((L2NpcInstance) target).getNpcId() == 35062))
+        {
+            int chance = Rnd.get(100);
+            // 2nd lethal effect activate (cp,hp to 1 or if target is npc then hp to 1)
+            if (skill.getLethalChance2() > 0 && chance < calcLethal(activeChar, target, skill.getLethalChance2()))
+            {
+                if (target instanceof L2NpcInstance)
+                    target.reduceCurrentHp(target.getStatus().getCurrentHp() - 1, activeChar);
+                else if (target instanceof L2PcInstance) // If is a active player set his HP and CP to 1
+                {
+                    L2PcInstance player = (L2PcInstance) target;
+                    if (!player.isInvul())
+                    {
+                        player.getStatus().setCurrentHp(1);
+                        player.getStatus().setCurrentCp(1);
+                    }
+                }
+                activeChar.sendPacket(new SystemMessage(SystemMessageId.LETHAL_STRIKE));
+            }
+            else if (skill.getLethalChance1() > 0 && chance < calcLethal(activeChar, target, skill.getLethalChance1()))
+            {
+                if (target instanceof L2PcInstance)
+                {
+                    L2PcInstance player = (L2PcInstance) target;
+                    if (!player.isInvul())
+                        player.getStatus().setCurrentCp(1); // Set CP to 1
+                }
+                else if (target instanceof L2NpcInstance) // If is a monster remove first damage and after 50% of current hp
+                    target.reduceCurrentHp(target.getStatus().getCurrentHp() / 2, activeChar);
+                activeChar.sendPacket(new SystemMessage(SystemMessageId.LETHAL_STRIKE));
+            }
+            else
+                return false;
+        }
+        else
+            return false;
+        
+        return true;
+    }
+
     /** Returns true in case of critical hit */
     public final boolean calcCrit(L2Character attacker, L2Character target, double rate)
     {

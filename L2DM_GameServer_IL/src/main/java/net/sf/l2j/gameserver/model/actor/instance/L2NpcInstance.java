@@ -119,7 +119,7 @@ import org.apache.commons.logging.LogFactory;
  */
 public class L2NpcInstance extends L2Character
 {
-    final protected static Log _log = LogFactory.getLog(L2NpcInstance.class.getName());
+    protected final static Log _log = LogFactory.getLog(L2NpcInstance.class.getName());
 
     /** The interaction distance of the L2NpcInstance(is used as offset in MovetoLocation method) */
     public static final int INTERACTION_DISTANCE = 150;
@@ -2750,10 +2750,12 @@ public class L2NpcInstance extends L2Character
            onDecay();
        }
     }
+    
     public boolean isMob() // rather delete this check
     {
     	return false; // This means we use MAX_NPC_ANIMATION instead of MAX_MONSTER_ANIMATION
     }
+    
     // Two functions to change the appearance of the equipped weapons on the NPC
     // This is only useful for a few NPCs and is most likely going to be called from AI
     public void setLHandId(int newWeaponId)
@@ -2785,6 +2787,10 @@ public class L2NpcInstance extends L2Character
     {
         return _currentCollisionRadius;
     }
+
+     
+     
+     
    //L2EMU_ADD_START
     public void cancel(L2PcInstance plyr)  
    {  

@@ -91,6 +91,7 @@ public class L2CharTemplate
 	public double baseEarthVuln;
 	public double baseHolyVuln;
 	public double baseDarkVuln;
+	public double baseCritVuln;
 
 	private  boolean isUndead;
 	
@@ -170,6 +171,7 @@ public class L2CharTemplate
 		baseEarthVuln       = set.getInteger("baseEarthVuln",     1);
 		baseHolyVuln        = set.getInteger("baseHolyVuln",      1);
 		baseDarkVuln        = set.getInteger("baseDarkVuln",      1);
+		baseCritVuln        = set.getInteger("baseCritVuln",      1);
 		
 		isUndead           = (set.getInteger("isUndead", 0) == 1);
         

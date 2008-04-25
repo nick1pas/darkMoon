@@ -151,11 +151,6 @@ public class Disablers implements ISkillHandler
                 activeSummon.setChargedSoulShot(L2ItemInstance.CHARGED_NONE);
             }
             }
-            else if (activeChar instanceof L2NpcInstance)
-            {
-            bss = ((L2NpcInstance)activeChar).isUsingShot(false);
-            ss = ((L2NpcInstance)activeChar).isUsingShot(true);
-            }
             
             for (L2Object element : targets) 
             {
@@ -644,13 +639,6 @@ public class Disablers implements ISkillHandler
                             int maxfive = 5;
                             for (L2Effect e : effects)
                             { 
-                                // do not delete signet effects!
-                                switch (e.getEffectType())
-                                {
-                                    case SIGNET_GROUND:
-                                    case SIGNET_EFFECT:
-                                        continue;
-                                }
 
                                 switch(e.getSkill().getId())
                                 {
