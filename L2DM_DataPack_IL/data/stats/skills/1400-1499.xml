@@ -265,20 +265,18 @@
 
 <skill id="1412" levels="1" name="Spell Turning">
   <set name="mpConsume" val="25"/>
-  <set name="magicLvl" val="79"/>
-  <set name="power" val="40"/>
-  <set name="lvlDepend" val="1"/>
   <set name="target" val="TARGET_ONE"/>
-  <set name="reuseDelay" val="20000"/>
-  <set name="hitTime" val="1500"/>
-  <set name="skillType" val="DEBUFF"/>
-  <set name="isMagic" val="true"/>
+  <set name="reuseDelay" val="120000"/>
+  <set name="hitTime" val="150"/>
+  <set name="skillType" val="CANCEL"/>
+  <set name="skill_landing_percent" val="100"/>
   <set name="operateType" val="OP_ACTIVE"/>
+  <set name="isMagic" val="true"/>
   <set name="castRange" val="150"/>
   <set name="effectRange" val="150"/>
   <for>
-    <effect count="1" name="Interrupt" time="1" val="0">
-  </effect>
+    <effect count="1" name="Mute" time="1" val="0"/>
+    <effect count="1" name="RemoveTarget" time="1" val="0"/>     
   </for>
 </skill>
 
@@ -294,8 +292,7 @@
   <set name="reuseDelay" val="1200000"/> 
   <set name="skillType" val="BUFF"/>
   <set name="isMagic" val="true"/>
-  <set name="operateType" val="OP_ACTIVE"/>
-  <set name="buffDuration" val="300000"/> 
+  <set name="operateType" val="OP_ACTIVE"/> 
   <set name="castRange" val="-1"/>
   <set name="effectRange" val="-1"/>
   <for>
