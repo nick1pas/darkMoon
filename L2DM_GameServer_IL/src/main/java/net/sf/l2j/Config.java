@@ -3893,12 +3893,11 @@ public final class Config
 		loadNpcChLevelConfig();
 		loadFortressSiegeConfig();
 		initDbProperties();
-		//Shilen's Temple Extensions
 		loadShtExtConfig();
 		loadBenomConfig();//SHT
 		Util.printSection("Information");
-		_log.info("Shilen's Temple Interlude Server");
-		_log.info("revision 0006x0005 beta");
+		_log.info("Dark Moon Interlude Server");
+		_log.info("Version: 1.0");
 		Util.printSection("Chat Filter");
 		
 	}
