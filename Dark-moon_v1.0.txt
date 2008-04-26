@@ -8,3 +8,4 @@
 -orc skills fix
 -Update passive skills
 -fix core
+-add new admin html
