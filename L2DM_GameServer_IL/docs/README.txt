@@ -1,25 +1,25 @@
- NOTE: This short guide is for a L2-SHT Server. http://l2-sht.ucoz.ru
+ NOTE: This short guide is for a Dark-Moon Server. http://dar-moon.2x4.ru
 
  If you received this file as a part of a packaged or bundled build:
  
-L2-SHT only supports L2-SHT software obtained directly from L2-SHT sources.
+Dark-Moon only supports Dark-Moon software obtained directly from Dark-Moon sources.
 
-What this means is, if you obtained L2-SHT from a source other than our SVN or nightly distribution,
+What this means is, if you obtained Dark-Moon from a source other than our SVN or nightly distribution,
 you need to get support from where you got the files.
 We are unable to provide any technical assistance for unsupported software packages. 
 The software may have virii, cause security problems, 
 or even send your personal information to remote servers without your express consent. 
 We cannot recommend the use of any of these packages on a server.
 
-WARNING: L2-SHT Server is not a plug and play type of server. 
+WARNING: Dark-Moon Server is not a plug and play type of server. 
 To setup the server and to run it successfully you need to do a lot of reading.
 If reading and learning are not something you like to do,
 Stop now.
 
 ====================
-L2-SHT Server 
+Dark-Moon Server 
 ====================
-$Date: 2008/15/03 19:14:22 $
+$Date: 2008/22/04 20:45:29 $
 
 TOC:
 I.    OVERVIEW
@@ -41,11 +41,11 @@ XII.  CREDITS
 I. OVERVIEW
 ====================
 
-L2-SHT is an Alternative Lineage 2 Game Server written in pure Java for
-best compatibility. L2-SHT gives you the possibility to legally host a game
+Dark-Moon is an Alternative Lineage 2 Game Server written in pure Java for
+best compatibility. Dark-Moon gives you the possibility to legally host a game
 server for this popular Korean MMO created by NCSoft. It is still
-unfinished and many features are missing, but L2-SHT Dev team is working
-hard on implementing them. L2-SHT Server is distributed under the terms
+unfinished and many features are missing, but Dark-Moon Dev team is working
+hard on implementing them. Dark-Moon Server is distributed under the terms
 of GNU/GPL in a hope that open source model is the best for
 developing quality software giving everyone a possibility to
 participate on development by submitting the code.
@@ -72,13 +72,13 @@ USA.
 
 Full GNU/GPL License is included in LICENSE.TXT file.
 
-Whereas L2-SHT is distributed under the terms of GNU/GPL, we require you to:
-a) Preserve logon notice. This gives us, L2-SHT Developers, appropriate
+Whereas Dark-Moon is distributed under the terms of GNU/GPL, we require you to:
+a) Preserve logon notice. This gives us, Dark-Moon Developers, appropriate
 credit for our hard work done during our free time without any
 revenues.
  
 b) Do not distribute any extended data files with the server files in
-the same archive. NO world content should be incorporated in L2-SHT
+the same archive. NO world content should be incorporated in Dark-Moon
 distribution.
 Server and Datapack may not be not be bundled or packaged.
 
@@ -96,7 +96,7 @@ Decent CPU & RAM
 Software:
 Java JDK 1.6u3
 MySql 4.1 or higher
-Datapack L2-SHT
+Datapack Dark-Moon
 
 We recommend:
 That you do not play and host the server from the same computer. 
@@ -109,10 +109,10 @@ IV. FIRST STARTUP
 
 Before you can start up the server it is extremely important to read 
 and get to know the wiki sites.
-They contain all the info you need to setup and run a L2-SHT Server.
+They contain all the info you need to setup and run a Dark-Moon Server.
 
-L2-SHT Server forum
-https://L2-SHT.UCOZ.RU/forum
+Dark-Moon Server forum
+https://dar-moon.2x4.ru/forum
 
 This Server distribution does not contain any spawn/drop data or any world
 content. (Datapack)
@@ -220,12 +220,12 @@ Further help available at the wiki sites and the forums.
 IX. CONTACT
 ====================
 
-Web: http://l2-sht.ucoz.ru
+Web: http://dark-moon.2x4.ru
 Please note that L2-SHT Devs can't help players with connecting issues or
 anything related to playing on private servers. If you can't connect,
-you should contact your server GM's. We can solve only L2-SHT server
+you should contact your server GM's. We can solve only Dark-Moon server
 ~software~ related issues. We don't have any backdoors or anything
-that would enable us GM accounts on every server using L2-SHT, so there's
+that would enable us GM accounts on every server using Dark-Moon, so there's
 no point in coming to our channel if you need items/adena/whatever
 ingame.
 
@@ -235,12 +235,12 @@ X. CONTRIBUTING
 ====================
 
 Anyone who wants to contribute to the project is encouraged to do so. Java
-programming skills are not always required as L2-SHT needs much more than
+programming skills are not always required as Dark-Moon needs much more than
 java code.
 
 If you created any source code that may be helpful please use the User Contributions
 section on our forums. If you contributed good stuff that will be
-accepted, you might be invited to join L2-SHT Dev Team.
+accepted, you might be invited to join Dark-Moon Dev Team.
 
 People willing to hang on chat and respond to user questions are also
 ALWAYS welcome ;)
@@ -251,12 +251,12 @@ XI. BUG REPORTING
 ====================
 
 Bugs can be reported on our site.
-http://l2-sht.ucoz.ru/forum
+http://dark-moon.2x4.ru/forum
 Basic rules for reporting are:
     Please report only one bug/issue per ticket!!
     You must include the revision (changeset) number when reporting a bug!
     "The latest" does not mean anything when 5 more updates have been done since you set up the server.
-If you are not sure if it should be reported here, make a post about it in the L2-SHT forum.
+If you are not sure if it should be reported here, make a post about it in the Dark-Moon forum.
 
 Players should ALWAYS consult bugs with their Admin/GM's and have them report it
 on our wiki site. Some bugs may be caused by bad datapack, server
@@ -264,7 +264,7 @@ installation or modifications server owner has made. We can't help you
 in that case.
 
 Please use the datapacks bugtracker for reporting datapack bugs.
-Please do NOT report bugs related to unofficial add-ons to L2-SHT. L2-SHT
+Please do NOT report bugs related to unofficial add-ons to Dark-Moon. Dark-Moon
 forum is NOT a place to fix that. Contact the person who made
 modification instead.
 
@@ -274,9 +274,9 @@ XII. CREDITS
 ====================
 
 Dev team: 
-http://l2-sht.ucoz.ru
+http://dark-moon.2x4.ru
 
-Have fun playing L2-SHT ;)
+Have fun playing Dark-Moon ;)
 Dev Team
 
     L2-SHT Server, Copyright (C) 2008 
