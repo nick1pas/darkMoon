@@ -422,33 +422,38 @@
   <set name="castRange" val="400"/>
   <set name="isMagic" val="true"/>
   <for>
-    <effect count="1" name="Invincible" time="10" val="0"/>
+				<add order="0x40" stat="pDef" val="1800" />
+				<add order="0x40" stat="mDef" val="1350" />
+				<sub order="0x40" stat="debuffVuln" val="30" />
   </for>
 </skill>
 
 <skill id="1419" levels="1" name="Volcano">
  <set name="mpConsume" val="60"/>
   <set name="power" val="0.0"/>
-  <set name="target" val="TARGET_PARTY"/>
+  <set name="target" val="TARGET_SELF"/>
   <set name="skillRadius" val="1000"/>
   <set name="reuseDelay" val="10000"/>
   <set name="hitTime" val="2000"/>
+  <set name="triggeredId" val="5130"/>
   <set name="skillType" val="BUFF"/>
   <set name="operateType" val="OP_ACTIVE"/>
   <set name="buffDuration" val="120000"/>
   <set name="castRange" val="-1"/>
   <set name="effectRange" val="-1"/>
+  <cond msg="3 Spell Forces required.">
+	<player spell_force="3" />
+  </cond>
   <for>
-    <effect name="ImobileBuff" time="120" count="1" val="0">
-      <add stat="fire" val="30" order="0x40"/>
-    </effect>
+			<effect count="1" name="Buff" time="30" val="0" />
   </for>
 </skill>
 
 <skill id="1420" levels="1" name="Cyclone">
  <set name="mpConsume" val="60"/>
   <set name="power" val="0.0"/>
-  <set name="target" val="TARGET_PARTY"/>
+  <set name="triggeredId" val="5132"/>
+  <set name="target" val="TARGET_SELF"/>
   <set name="skillRadius" val="1000"/>
   <set name="reuseDelay" val="10000"/>
   <set name="hitTime" val="2000"/>
@@ -457,17 +462,18 @@
   <set name="buffDuration" val="120000"/>
   <set name="castRange" val="-1"/>
   <set name="effectRange" val="-1"/>
-  <for>
-    <effect name="ImobileBuff" time="120" count="1" val="0">
-      <add stat="wind" val="30" order="0x40"/>
-    </effect>
+  <cond msg="3 Spell Forces required.">
+	<player spell_force="3" />
+  </cond>  <for>
+			<effect count="1" name="Buff" time="60" val="0" />
   </for>
 </skill>
 
 <skill id="1421" levels="1" name="Raging Waves">
 <set name="mpConsume" val="60"/>
   <set name="power" val="0.0"/>
-  <set name="target" val="TARGET_PARTY"/>
+  <set name="triggeredId" val="5131"/>
+  <set name="target" val="TARGET_SELF"/>
   <set name="skillRadius" val="1000"/>
   <set name="reuseDelay" val="10000"/>
   <set name="hitTime" val="2000"/>
@@ -476,17 +482,19 @@
   <set name="buffDuration" val="120000"/>
   <set name="castRange" val="-1"/>
   <set name="effectRange" val="-1"/>
+  <cond msg="3 Spell Forces required.">
+	<player spell_force="3" />
+  </cond>
   <for>
-    <effect name="ImobileBuff" time="120" count="1" val="0">
-      <add stat="water" val="30" order="0x40"/>
-    </effect>
+			<effect count="1" name="Buff" time="60" val="0" />
   </for>
 </skill>
 
 <skill id="1422" levels="1" name="Day of Doom">
   <set name="mpConsume" val="60"/>
   <set name="power" val="0.0"/>
-  <set name="target" val="TARGET_PARTY"/>
+  <set name="triggeredId" val="5145"/>
+  <set name="target" val="TARGET_SELF"/>
   <set name="skillRadius" val="1000"/>
   <set name="reuseDelay" val="10000"/>
   <set name="hitTime" val="2000"/>
@@ -495,17 +503,19 @@
   <set name="buffDuration" val="120000"/>
   <set name="castRange" val="-1"/>
   <set name="effectRange" val="-1"/>
+  <cond msg="3 Spell Forces required.">
+	<player spell_force="3" />
+  </cond>
   <for>
-    <effect name="ImobileBuff" time="120" count="1" val="0">
-      <add stat="water" val="30" order="0x40"/>
-    </effect>
+			<effect count="1" name="Buff" time="60" val="0" />
   </for>
 </skill>
 
 <skill id="1423" levels="1" name="Gehenna">
  <set name="mpConsume" val="60"/>
   <set name="power" val="0.0"/>
-  <set name="target" val="TARGET_PARTY"/>
+  <set name="triggeredId" val="5133"/>
+  <set name="target" val="TARGET_SELF"/>
   <set name="skillRadius" val="1000"/>
   <set name="reuseDelay" val="10000"/>
   <set name="hitTime" val="2000"/>
@@ -514,21 +524,31 @@
   <set name="buffDuration" val="120000"/>
   <set name="castRange" val="-1"/>
   <set name="effectRange" val="-1"/>
+  <cond msg="3 Spell Forces required.">
+	<player spell_force="3" />
+  </cond>
   <for>
-    <effect name="ImobileBuff" time="120" count="1" val="0">
-      <add stat="dark" val="30" order="0x40"/>
-    </effect>
+			<effect count="1" name="Buff" time="60" val="0" />
   </for>
 </skill>
-
 <skill id="1424" levels="1" name="Anti-Summoning Field">
- <set name="target" val="TARGET_NONE"/>
-  <set name="skillType" val="NOTDONE"/>
-  <set name="operateType" val="OP_PASSIVE"/>
-  <set name="castRange" val="-1"/>
-  <set name="effectRange" val="-1"/>
-  <for>
-  </for>
+	<set name="mpConsume2" val="89" />
+	<set name="target" val="TARGET_SELF" />
+	<set name="hitTime" val="5000" />
+	<set name="triggeredId" val="5134"/>
+	<set name="reuseDelay" val="600000" />
+	<set name="operateType" val="OP_ACTIVE" />
+	<set name="skillType" val="BUFF" />
+	<set name="skillRadius" val="200" />
+	<set name="itemConsumeId" val="8876" />
+	<set name="itemConsumeCount" val="1" />
+	<set name="castRange" val="900" />
+	<cond msg="2 Spell Forces required.">
+		<player spell_force="2" />
+	</cond>
+    <for>
+		<effect count="1" name="Buff" time="60" val="0" />
+	</for>
 </skill>
 
 <skill id="1425" levels="1" name="Purification Field">
@@ -538,17 +558,26 @@
   <set name="hpInitialConsume" val="#hpConsume_Init"/>
   <set name="hpConsume" val="#hpConsume"/>
   <set name="power" val="#power"/>
-  <set name="target" val="TARGET_PARTY"/>
+  <set name="target" val="TARGET_CLAN"/>
   <set name="reuseDelay" val="1200000"/>
   <set name="hitTime" val="3000"/>
-  <set name="skillType" val="DEBUFF"/>
+  <set name="skillType" val="BUFF"/>
   <set name="isMagic" val="true"/>
   <set name="operateType" val="OP_ACTIVE"/>
   <set name="castRange" val="400"/>
   <set name="effectRange" val="900"/>
   <set name="num_charges" val="1"/>
   <set name="charge_skill_id" val="427"/>
+  <cond msg="2 Spell Forces required.">
+		<player spell_force="2" />
+  </cond>
   <for>
+			<effect count="1" name="Buff" time="30" val="0">
+				<sub order="0x40" stat="rootVuln" val="300" />
+				<sub order="0x40" stat="stunVuln" val="300" />
+				<sub order="0x40" stat="paralyzeVuln" val="300" />
+				<sub order="0x40" stat="debuffVuln" val="300" />
+			</effect>
   </for>
 </skill>
 
@@ -568,8 +597,8 @@
   <set name="operateType" val="OP_ACTIVE"/>
   <set name="castRange" val="-1"/>
   <set name="effectRange" val="-1"/>
-  <cond msg="Proper force required.">
-    <player spell_force="2"/>
+  <cond msg="2 Spell Forces required.">
+		<player spell_force="2" />
   </cond>
   <for>
   </for>
@@ -590,11 +619,15 @@
   <set name="castRange" val="-1"/>
   <set name="effectRange" val="-1"/>
   <set name="aggroPoints" val="900"/>
-  <cond msg="Proper force required.">
-    <player spell_force="2"/>
+  <cond msg="2 Spell Forces required.">
+		<player spell_force="2" />
   </cond>
   <for>
-    <effect count="1" name="Invincible" time="30" val="0"/>
+			<effect count="1" name="Buff" time="30" val="0">
+				<add order="0x40" stat="pDef" val="1800" />
+				<add order="0x40" stat="mDef" val="1350" />
+				<sub order="0x40" stat="debuffVuln" val="30" />
+			</effect>
   </for>
 </skill>
 

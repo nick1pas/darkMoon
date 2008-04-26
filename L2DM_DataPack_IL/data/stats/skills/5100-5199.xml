@@ -362,10 +362,11 @@
   <set name="operateType" val="OP_ACTIVE"/>
   <set name="castRange" val="-1"/>
   <for>
-    <effect count="1" name="Buff" time="8" val="0">
-      <add order="0x40" stat="pDef" val="500"/>
-      <add order="0x40" stat="mDef" val="300"/>
-    </effect>
+			<effect count="0x7fffffff" name="Buff" time="0x7fffffff" val="0">
+				<mul order="0x30" stat="pDef" val="1.4" />
+				<mul order="0x30" stat="mDef" val="1.4" />
+				<mul order="0x30" stat="sDef" val="1.4" />
+			</effect>
   </for>
 </skill>
 
@@ -403,10 +404,10 @@
   <set name="operateType" val="OP_ACTIVE"/>
   <set name="castRange" val="-1"/>
   <for>
-    <effect count="1" name="Buff" time="8" val="0">
-      <mul stat="regHp" val="2" order="0x30"/>
-      <mul stat="regCp" val="2" order="0x30"/>
-    </effect>
+			<effect count="0x7fffffff" name="Buff" time="0x7fffffff" val="0">
+				<mul order="0x80" stat="regHp" val="1.4" />
+				<mul order="0x80" stat="regCp" val="1.4" />
+			</effect>
   </for>
 </skill>
 
@@ -416,9 +417,9 @@
   <set name="operateType" val="OP_ACTIVE"/>
   <set name="castRange" val="-1"/>
   <for>
-    <!-- effect count="1" name="RecoverForce" time="8" val="0" --> <!-- need update core -->
-      <mul order="0x30" stat="pAtk" val="1.10"/> <!-- Guessed -->
-    <!-- /effect -->
+			<effect count="0x7fffffff" name="Buff" time="0x7fffffff" val="0">
+				<mul order="0x30" stat="pAtk" val="1.4" />
+			</effect>
   </for>
 </skill>
 
@@ -428,10 +429,10 @@
   <set name="operateType" val="OP_ACTIVE"/>
   <set name="castRange" val="-1"/>
   <for>
-    <effect count="1" name="Buff" time="8" val="0">
-      <add order="0x40" stat="accCombat" val="40"/>
-      <mul order="0x30" stat="pAtk" val="1.10"/>
-    </effect>
+			<effect count="0x7fffffff" name="Buff" time="0x7fffffff" val="0">
+				<mul order="0x60" stat="pAtk" val="1.4" />
+				<mul order="0x10" stat="pAtkRange" val="1.2" />
+			</effect>
   </for>
 </skill>
 
@@ -441,10 +442,12 @@
   <set name="operateType" val="OP_ACTIVE"/>
   <set name="castRange" val="-1"/>
   <for>
-    <effect count="1" name="Buff" time="8" val="0">
-      <mul order="0x10" stat="lethalRate" val="1.5"/> <!-- Plegas add -->
-      <mul order="0x40" stat="rEvas" val="1.2"/> <!-- Plegas add -->
-    </effect>
+			<effect count="0x7fffffff" name="Buff" time="0x7fffffff" val="0">
+				<mul order="0x40" stat="rEvas" val="1.4" />
+				<mul order="0x20" stat="pAtk" val="1.2" />
+				<mul order="0x40" stat="rCrit" val="1.2" />
+				<mul order="0x30" stat="blowRate" val="1.2" />
+			</effect>
   </for>
 </skill>
 
@@ -784,6 +787,7 @@
   <set name="skillType" val="NOTDONE"/>
   <set name="operateType" val="OP_PASSIVE"/>
   <set name="castRange" val="-1"/>
+		<set name="hitTime" val="5000" />
   <for>
   </for>
 </skill>
