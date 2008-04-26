@@ -4312,7 +4312,6 @@ public final class L2PcInstance extends L2PlayableInstance
                     }
                     if (clanWarKill)
                     { 
-					//fix by NecroLorD, Shilen's Temple Dev Team
 					   if ((getClan().getReputationScore() >0)&&(pk.getClan().getReputationScore() >= 0)){
 						  pk.getClan().setReputationScore(pk.getClan().getReputationScore()+2, true);}
 						if((getClan().getReputationScore() == 1)){

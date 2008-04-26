@@ -359,7 +359,7 @@ public class GameServer
 		Util.printSection("Other Info");
 		_log.info("Information: Compiler version: "+getBuildJdk());
         _log.info("Maximum Numbers of Connected Players: " + Config.MAXIMUM_ONLINE_USERS);
-		_log.info("Shilen's Temple Dev Team");
+		_log.info("Darm Moon Dev Team");
 		
         double finalTime = System.currentTimeMillis();
         _log.info("GameServer: Total Boot Time: "+(int)((finalTime - intialTime)/1000)+" Seconds.");

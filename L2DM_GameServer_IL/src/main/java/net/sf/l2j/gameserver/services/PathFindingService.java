@@ -153,9 +153,7 @@ public class PathFindingService
 	
 	//============================================================================================
 	public static final String SCRIPT_ENGINE_PATH    = "data/script/";
-		//Shilen's Temple extensions
 	//============================================================================================
-	//Addeded by NecroLorD, Shilen's Temple Server
 	
 	public static final String ShTMain_FILE        = extPath+"ShTMain.conf";
 }

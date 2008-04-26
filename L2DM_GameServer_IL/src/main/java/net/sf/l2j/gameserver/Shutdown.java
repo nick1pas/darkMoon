@@ -324,10 +324,7 @@ public class Shutdown extends Thread implements ShutdownMBean
                 int _disconseconds;
 				int _fakeseconds;
 				int shttimer;
-				//added by NecroLorD, Shilen's Temple Server
                 _disconseconds = Config.SHT_Fake_SECONDS_SHUTDOWN; //number of seconds before shutdowning server for close all connection
-				//if <> 0, you must add to shutdwn timer this value
-				//end
                 _seconds = _secondsShut;
                 _minutes = Math.round(_seconds / 60);
                 _hours = Math.round(_seconds / 3600);

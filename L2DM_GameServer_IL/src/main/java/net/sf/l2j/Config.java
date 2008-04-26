@@ -1073,10 +1073,8 @@ public final class Config
 	public static boolean TVT_JOIN_CURSED;
 	public static boolean TVT_PRICE_NO_KILLS;
 	public static String  TVT_EVEN_TEAMS;
-	//Added by NecroLorD, Shilen's Temple Dev Team
 	public static boolean TVT_SHT_ALLOW_TVT_CYCLE;
 	public static int     TVT_SHT_TVT_FIRST_START_DELAY;
-	//End Sh'T addon's
 	//*********************************************************************************************************
 	public static void loadTvtConfig()
 	{
@@ -3894,7 +3892,7 @@ public final class Config
 		loadFortressSiegeConfig();
 		initDbProperties();
 		loadShtExtConfig();
-		loadBenomConfig();//SHT
+		loadBenomConfig();
 		Util.printSection("Information");
 		_log.info("Dark Moon Interlude Server");
 		_log.info("Version: 1.0");
