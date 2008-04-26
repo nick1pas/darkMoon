@@ -1,8 +1,8 @@
 @echo off
 color 17
-title L2EmuProject:  Login Server Console
+title L2Dark-Moon:  Login Server Console
 :start
-echo Initializing L2EmuProject LoginServer.
+echo Initializing L2Dark-Moon LoginServer.
 echo.
 
 SET OLDCLASSPATH=%CLASSPATH%

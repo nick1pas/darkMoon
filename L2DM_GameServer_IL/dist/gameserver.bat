@@ -1,8 +1,8 @@
 @echo off
 color 17
-title L2EmuProject:   Game Server Console
+title L2Dark-Moon:   Game Server Console
 :start
-echo Initializing L2EmuProject GameServer.
+echo Initializing L2Dark-Moon GameServer.
 echo.
 SET OLDCLASSPATH=%CLASSPATH%
 call setenv.bat
