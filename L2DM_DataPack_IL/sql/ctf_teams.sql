@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `ctf_teams` (
   `teamId` int(4) NOT NULL default '0',
   `teamName` varchar(255) NOT NULL default '',

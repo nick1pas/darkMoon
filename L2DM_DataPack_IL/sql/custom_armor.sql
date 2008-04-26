@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `custom_armor` (
   `item_id` int(11) NOT NULL default '0',
   `item_display_id` int(11) NOT NULL default '0',

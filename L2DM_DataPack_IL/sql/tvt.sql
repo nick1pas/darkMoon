@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `tvt` (
   `eventName` varchar(255) NOT NULL DEFAULT '',
   `eventDesc` varchar(255) NOT NULL DEFAULT '',

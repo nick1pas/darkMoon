@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `character_stats` (
   `id` decimal(11,0) NOT NULL default '0',
   `totalKarma` double(255,0) NOT NULL default '0',

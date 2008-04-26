@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 DROP TABLE IF EXISTS `four_sepulchers_spawnlist`;
 CREATE TABLE `four_sepulchers_spawnlist` (
   `id` int(11) NOT NULL auto_increment,

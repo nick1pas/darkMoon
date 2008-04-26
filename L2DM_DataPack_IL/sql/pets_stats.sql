@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 DROP TABLE IF EXISTS `pets_stats`;
 CREATE TABLE `pets_stats` (
   `type` varchar(25) NOT NULL default '',

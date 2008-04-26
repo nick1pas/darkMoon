@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 DROP TABLE IF EXISTS `raidboss_spawnlist`;
 CREATE TABLE `raidboss_spawnlist` (
   `boss_id` int(11) NOT NULL default '0',

@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `characters` (
   `account_name` varchar(45) default NULL,
   `obj_Id` decimal(11,0) NOT NULL default '0',

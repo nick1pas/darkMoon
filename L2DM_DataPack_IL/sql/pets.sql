@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `pets` (
   `item_obj_id` decimal(11,0) NOT NULL default '0',
   `name` varchar(16) default NULL,

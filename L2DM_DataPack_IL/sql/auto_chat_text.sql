@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 DROP TABLE IF EXISTS `auto_chat_text`;
 CREATE TABLE `auto_chat_text` (
   `groupId` int(11) NOT NULL default '0',

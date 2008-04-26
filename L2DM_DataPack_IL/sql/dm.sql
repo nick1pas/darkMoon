@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `dm` (
   `eventNane` varchar(255) NOT NULL default '',
   `eventDesc` varchar(255) NOT NULL default '',

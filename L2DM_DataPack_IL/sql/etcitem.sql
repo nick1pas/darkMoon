@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 DROP TABLE IF EXISTS `etcitem`;
 CREATE TABLE `etcitem` (
   `item_id` decimal(11,0) NOT NULL default '0',

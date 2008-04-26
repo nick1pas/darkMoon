@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `vipinfo` (
   `teamID` int(11) NOT NULL default '0',
   `endx` int(11) NOT NULL default '0',

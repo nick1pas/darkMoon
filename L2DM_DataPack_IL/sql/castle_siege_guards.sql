@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 DROP TABLE IF EXISTS `castle_siege_guards`;
 CREATE TABLE `castle_siege_guards` (
   `castleId` int(11) NOT NULL default '0',

@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 DROP TABLE IF EXISTS `walker_routes`;
 CREATE TABLE `walker_routes` (
   `route_id` int(11) NOT NULL default '0',

@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 DROP TABLE IF EXISTS `teleport`;
 CREATE TABLE `teleport` (
   `Description` varchar(75) default NULL,

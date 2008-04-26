@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `character_shortcuts` (
   `char_obj_id` decimal(11,0) NOT NULL default '0',
   `slot` decimal(3,0) NOT NULL default '0',

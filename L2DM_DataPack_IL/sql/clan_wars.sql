@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `clan_wars` (
   `clan1` varchar(35) NOT NULL default '',
   `clan2` varchar(35) NOT NULL default '',

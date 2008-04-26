@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 DROP TABLE IF EXISTS `topic`;
 CREATE TABLE `topic` (
   `topic_id` int(8) NOT NULL default '0',

@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 DROP TABLE IF EXISTS `class_list`;
 CREATE TABLE `class_list` (
   `class_name` varchar(19) NOT NULL default '',

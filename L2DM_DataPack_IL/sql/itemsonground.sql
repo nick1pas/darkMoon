@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 DROP TABLE IF EXISTS `itemsonground`;
 CREATE TABLE `itemsonground` (
   `object_id` int(11) NOT NULL default '0',

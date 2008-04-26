@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 DROP TABLE IF EXISTS `fortress_siege`;
 CREATE TABLE `fortress_siege` (
   `eventName` varchar(255) NOT NULL default '',

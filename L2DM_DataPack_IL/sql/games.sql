@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `games` (
   `id` int(11) NOT NULL default '0',
   `idnr` int(11) NOT NULL default '0',

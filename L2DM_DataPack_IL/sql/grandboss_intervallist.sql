@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 DROP TABLE IF EXISTS `grandboss_intervallist`;
 CREATE TABLE `grandboss_intervallist` (
   `bossId` int(11) NOT NULL default '0',

@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 DROP TABLE IF EXISTS `merchants`;
 CREATE TABLE `merchants` (
   `npc_id` int(11) NOT NULL default '0',

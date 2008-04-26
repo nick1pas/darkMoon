@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `couples` (
   `id` int(11) NOT NULL auto_increment,
   `player1Id` int(11) NOT NULL default '0',

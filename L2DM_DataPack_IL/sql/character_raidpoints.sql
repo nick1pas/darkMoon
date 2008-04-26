@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `character_raidpoints` (
   `owner_id` int(11) unsigned NOT NULL default '0',
   `boss_id` int(11) unsigned NOT NULL default '0',

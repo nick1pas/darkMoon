@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `custom_npc` (
   `id` decimal(11,0) NOT NULL default '0',
   `idTemplate` int(11) NOT NULL default '0',

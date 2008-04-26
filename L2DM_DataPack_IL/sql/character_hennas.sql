@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `character_hennas` (
   `char_obj_id` int(11) NOT NULL default '0',
   `symbol_id` int(11) default NULL,

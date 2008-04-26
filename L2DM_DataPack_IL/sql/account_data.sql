@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `account_data` (
   `account_name` varchar(45) NOT NULL default '',
   `var` varchar(20) NOT NULL default '',

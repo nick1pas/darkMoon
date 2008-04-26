@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `clan_privs` (
   `clan_id` int(11) NOT NULL default '0',
   `rank` int(11) NOT NULL default '0',

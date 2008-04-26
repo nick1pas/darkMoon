@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 DROP TABLE IF EXISTS `armorsets`;
 CREATE TABLE `armorsets` (
   `id` int(3) NOT NULL auto_increment,

@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `character_subclasses` (
   `char_obj_id` decimal(11,0) NOT NULL default '0',
   `class_id` int(2) NOT NULL default '0',

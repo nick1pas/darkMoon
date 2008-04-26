@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `record` (
   `maxplayer` int(5) NOT NULL default '0',
   `date` date NOT NULL default '0000-00-00'

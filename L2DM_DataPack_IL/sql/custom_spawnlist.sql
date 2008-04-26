@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `custom_spawnlist` (
   `id` int(11) NOT NULL auto_increment,
   `location` varchar(40) default NULL,

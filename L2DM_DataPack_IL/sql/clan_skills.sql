@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `clan_skills` (
   `clan_id` int(11) NOT NULL default '0',
   `skill_id` int(11) NOT NULL default '0',

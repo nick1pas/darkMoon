@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `posts` (
   `post_id` int(8) NOT NULL auto_increment,
   `post_owner_name` varchar(255) NOT NULL default '',

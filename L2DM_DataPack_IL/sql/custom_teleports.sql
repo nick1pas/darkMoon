@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `custom_teleports` (
   `description` varchar(75) default NULL,
   `id` decimal(11,0) NOT NULL default '0',

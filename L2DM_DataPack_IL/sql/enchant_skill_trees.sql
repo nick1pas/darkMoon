@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 DROP TABLE IF EXISTS `enchant_skill_trees`;
 CREATE TABLE `enchant_skill_trees` (
   `skill_id` int(10) NOT NULL default '0',

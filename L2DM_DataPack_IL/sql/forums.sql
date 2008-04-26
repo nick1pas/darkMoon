@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `forums` (
   `forum_id` int(8) NOT NULL default '0',
   `forum_name` varchar(255) NOT NULL default '',

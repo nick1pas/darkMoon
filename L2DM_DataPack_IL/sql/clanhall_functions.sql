@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `clanhall_functions` (
   `hall_id` int(2) NOT NULL default '0',
   `type` int(1) NOT NULL default '0',

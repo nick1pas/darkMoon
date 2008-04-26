@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `castle_manor_procure` (
   `castle_id` int(11) NOT NULL default '0',
   `crop_id` int(11) NOT NULL default '0',

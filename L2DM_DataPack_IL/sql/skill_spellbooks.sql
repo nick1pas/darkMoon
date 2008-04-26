@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 DROP TABLE IF EXISTS `skill_spellbooks`;
 CREATE TABLE `skill_spellbooks` (
   `skill_id` int(11) NOT NULL default '-1',

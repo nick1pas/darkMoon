@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 DROP TABLE IF EXISTS `merchant_shopids`;
 CREATE TABLE `merchant_shopids` (
   `shop_id` decimal(9,0) NOT NULL default '0',

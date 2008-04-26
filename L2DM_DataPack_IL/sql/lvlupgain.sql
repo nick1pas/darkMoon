@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 DROP TABLE IF EXISTS `lvlupgain`;
 CREATE TABLE `lvlupgain` (
   `classid` int(3) NOT NULL default '0',

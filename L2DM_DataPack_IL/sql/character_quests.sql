@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `character_quests` (
   `char_id` int(11) NOT NULL default '0',
   `name` varchar(40) NOT NULL default '',

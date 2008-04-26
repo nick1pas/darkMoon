@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 DROP TABLE IF EXISTS `merchant_areas_list`;
 CREATE TABLE `merchant_areas_list` (
   `merchant_area_id` int(10) unsigned NOT NULL default '0',

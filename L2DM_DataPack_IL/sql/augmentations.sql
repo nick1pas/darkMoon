@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `augmentations` (
   `item_id` int(11) NOT NULL default '0',
   `attributes` int(11) default '0',

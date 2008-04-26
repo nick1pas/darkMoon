@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 DROP TABLE IF EXISTS `char_templates`;
 CREATE TABLE `char_templates` (
   `ClassId` int(11) NOT NULL default '0',

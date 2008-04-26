@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 DROP TABLE IF EXISTS `locations`;
 CREATE TABLE `locations` (
   `loc_id` int(9) NOT NULL default '0',

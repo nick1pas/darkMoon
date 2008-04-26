@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 DROP TABLE IF EXISTS `droplist`;
 CREATE TABLE `droplist` (
   `mobId` int(11) NOT NULL default '0',

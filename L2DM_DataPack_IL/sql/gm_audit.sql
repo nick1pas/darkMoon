@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `gm_audit` (
   `id` int(10) NOT NULL auto_increment,
   `gm_name` varchar(45) default NULL,

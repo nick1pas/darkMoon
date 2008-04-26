@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 DROP TABLE IF EXISTS `faction_quests`;
 CREATE TABLE `faction_quests` (
   `id` int(11) NOT NULL default '0',

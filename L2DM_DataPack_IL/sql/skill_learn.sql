@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 DROP TABLE IF EXISTS `skill_learn`;
 CREATE TABLE `skill_learn` (
   `npc_id` int(11) NOT NULL default '0',

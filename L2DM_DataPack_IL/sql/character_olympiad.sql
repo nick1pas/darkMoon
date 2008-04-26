@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `character_olympiad` (
   `char_name` varchar(20) default NULL,
   `char_obj_id` int(11) NOT NULL default '0',

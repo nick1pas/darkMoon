@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `accounts` (
   `login` varchar(45) NOT NULL default '',
   `password` varchar(45) default NULL,

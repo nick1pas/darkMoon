@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `auto_announcements` (
   `id` int(11) NOT NULL auto_increment,
   `announcement` varchar(255) collate latin1_general_ci NOT NULL default '',

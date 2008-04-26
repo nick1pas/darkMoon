@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `auction_bid` (
   `id` int(11) NOT NULL default '0',
   `auctionId` int(11) NOT NULL default '0',

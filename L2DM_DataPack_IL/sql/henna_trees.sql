@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 DROP TABLE IF EXISTS `henna_trees`;
 CREATE TABLE `henna_trees` (
   `class_id` decimal(10,0) NOT NULL default '0',

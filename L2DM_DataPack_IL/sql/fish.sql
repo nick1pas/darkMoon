@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 DROP TABLE IF EXISTS `fish`;
 CREATE TABLE `fish` (
   `id` int(5) NOT NULL default '0',

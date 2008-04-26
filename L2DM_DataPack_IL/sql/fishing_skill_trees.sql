@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 DROP TABLE IF EXISTS `fishing_skill_trees`;
 CREATE TABLE `fishing_skill_trees` (
   `skill_id` int(10) NOT NULL default '0',

@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 DROP TABLE IF EXISTS `jail_spawnlist`;
 CREATE TABLE `jail_spawnlist` (
   `id` int(11) NOT NULL auto_increment,

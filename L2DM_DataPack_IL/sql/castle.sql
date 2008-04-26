@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `castle` (
   `id` int(11) NOT NULL default '0',
   `name` varchar(25) NOT NULL default '',

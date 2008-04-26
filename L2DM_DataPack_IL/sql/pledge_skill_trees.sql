@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 DROP TABLE IF EXISTS `pledge_skill_trees`;
 CREATE TABLE `pledge_skill_trees` (
   `skill_id` int(11) default NULL,

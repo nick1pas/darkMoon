@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 DROP TABLE IF EXISTS `random_spawn`;
 CREATE TABLE `random_spawn` (
   `groupId` int(11) NOT NULL default '0',

@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `global_tasks` (
   `id` int(11) NOT NULL auto_increment,
   `task` varchar(50) NOT NULL default '',

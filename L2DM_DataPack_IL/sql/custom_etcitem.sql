@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `custom_etcitem` (
   `item_id` decimal(11,0) NOT NULL default '0',
   `item_display_id` decimal(11,0) NOT NULL default '0',
@@ -23,7 +23,7 @@ CREATE TABLE `custom_etcitem` (
 
 INSERT INTO `custom_etcitem` VALUES ('15000', '15000', 'Gold Coin', 'false', 'material', '0', 'stackable', 'steel', 'none', '100', '0', '0', 'false', 'false', 'false', 'true', 'q_coin_diagram', 'none');
 
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 
 INSERT INTO custom_etcitem (`item_id`, `item_display_id`, `name`, `crystallizable`, `item_type`, `weight`, `consume_type`, `material`, `crystal_type`, `duration`, `price`, `crystal_count`, `sellable`, `dropable`, `destroyable`, `tradeable`, `oldname`, `oldtype`) VALUES
 (20001, 20001, 'Earth Sphere', 'false', 'quest', 0, 'stackable', 'steel', 'none', -1, 0, 0, 'false', 'false', 'false', 'false', 'C4Item', 'none'),

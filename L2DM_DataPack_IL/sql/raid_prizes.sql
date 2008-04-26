@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 DROP TABLE IF EXISTS `raid_prizes`;
 CREATE TABLE `raid_prizes` (
   `prize_package_id` int(11) NOT NULL default '0',

@@ -1,4 +1,4 @@
--- Shilen's Temple Dev Team
+-- Dark Moon Dev Team
 CREATE TABLE `cursed_weapons` (
   `itemId` int(11) NOT NULL default '0',
   `playerId` int(11) default '0',
