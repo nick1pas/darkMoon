@@ -176,7 +176,7 @@ public class L2WeddingManagerInstance extends L2NpcInstance
 
                     }
                     
-                    Announcements.getInstance().announceToAll("Поздравляем молодожен, "+player.getName()+" и "+ptarget.getName()+" поженились!");            
+                    Announcements.getInstance().announceToAll("В¦СЋС‡С„РЃСЂС‚С‹В С…СЊ СЊСЋС‹СЋС„СЋС†С…СЌ, "+player.getName()+" С€ "+ptarget.getName()+" СЏСЋС†С…СЌС€С‹С€С‘в„–!");            
                     
                     MSU = null;
                     
