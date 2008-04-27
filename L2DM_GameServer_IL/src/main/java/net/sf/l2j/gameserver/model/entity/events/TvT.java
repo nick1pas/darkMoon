@@ -255,7 +255,7 @@ public class TvT
         
         _joining = true;
         spawnEventNpc(activeChar);
-        Announcements.getInstance().announceToAll(_eventName + "(TvT): Joinable in " + _joiningLocationName + "!");
+        Announcements.getInstance().announceToAll(_eventName + "TvT Эвент: Добавление в: " + _joiningLocationName + "!");
     }
 
     public static void startJoin()
@@ -269,7 +269,7 @@ public class TvT
         
         _joining = true;
         spawnEventNpc();
-        Announcements.getInstance().announceToAll(_eventName + "(TvT): Joinable in " + _joiningLocationName + "!");
+        Announcements.getInstance().announceToAll(_eventName + "TvT Эвент: Добавление в: " + _joiningLocationName + "!");
     }
     
     public static boolean startAutoJoin()
@@ -282,7 +282,7 @@ public class TvT
         
         _joining = true;
         spawnEventNpc();
-        Announcements.getInstance().announceToAll(_eventName + "(TvT): Joinable in " + _joiningLocationName + "!");
+        Announcements.getInstance().announceToAll(_eventName + "TvT Эвент: Добавление в: " + _joiningLocationName + "!");
         return true;
     }
     
@@ -530,7 +530,7 @@ public class TvT
         
         _teleport = false;
         stand();
-        Announcements.getInstance().announceToAll(_eventName + "TvT Event:Убей врага, или он убъет тебя!");
+        Announcements.getInstance().announceToAll(_eventName + "TvT Эвент: Убей врага, или он убъет тебя!");
         _started = true;
     }
     
@@ -554,7 +554,7 @@ public class TvT
         
         _teleport = false;
         stand();
-        Announcements.getInstance().announceToAll(_eventName + "TvT Event:Убей врага, или он убъет тебя!");
+        Announcements.getInstance().announceToAll(_eventName + "TvT Эвент: Убей врага, или он убъет тебя!");
         _started = true;
         return true;
     }
@@ -620,11 +620,11 @@ public class TvT
 					case 3600: // 1 hour left
 						if (_joining)
 						{
-							Announcements.getInstance().announceToAll(_eventName + "(TvT): Добавление в " + _joiningLocationName + "!");
-							Announcements.getInstance().announceToAll("До конца регистрации на TvT эвент осталось:" + seconds / 60 / 60 + " час(а)");
+							Announcements.getInstance().announceToAll(_eventName + "TvT Эвент: Добавление в " + _joiningLocationName + "!");
+							Announcements.getInstance().announceToAll("TvT Эвент: До конца регистрации на TvT эвент осталось:" + seconds / 60 / 60 + " час(а)");
 						}
 						else if (_started)
-							Announcements.getInstance().announceToAll("До конца TvT эвента осталось:" + seconds / 60 / 60 + " час(а)");
+							Announcements.getInstance().announceToAll("TvT Эвент: До конца TvT эвента осталось:" + seconds / 60 / 60 + " час(а)");
 
 						break;
 					case 1800: // 30 minutes left
@@ -640,11 +640,11 @@ public class TvT
 						if (_joining)
 						{
 							removeOfflinePlayers();
-							Announcements.getInstance().announceToAll(_eventName + "(TvT): Joinable in " + _joiningLocationName + "!");
-							Announcements.getInstance().announceToAll("До конца регистрации на TvT эвент осталось:" + seconds / 60 + " минут(а)");
+							Announcements.getInstance().announceToAll(_eventName + "TvT Эвент: Добавление в " + _joiningLocationName + "!");
+							Announcements.getInstance().announceToAll("TvT Эвент: До конца регистрации на TvT эвент осталось:" + seconds / 60 + " минут(а)");
 						}
 						else if (_started)
-							Announcements.getInstance().announceToAll("До конца TvT эвента осталось:" + seconds / 60 + " минут(а)");
+							Announcements.getInstance().announceToAll("TvT Эвент: До конца TvT эвента осталось:" + seconds / 60 + " минут(а)");
 						
 						break;
 					case 30: // 30 seconds left
@@ -658,11 +658,11 @@ public class TvT
 					case 2: // 2 seconds left
 					case 1: // 1 seconds left
 						if (_joining)
-							Announcements.getInstance().announceToAll("До конца регистрации на TvT эвент осталось:" + seconds + " секунд(а)");
+							Announcements.getInstance().announceToAll("TvT Эвент: До конца регистрации на TvT эвент осталось:" + seconds + " секунд(а)");
 						else if (_teleport)
-							Announcements.getInstance().announceToAll("До начало TvT эвента осталось:" + seconds + " секунд(а)");
+							Announcements.getInstance().announceToAll("TvT Эвент: До начало TvT эвента осталось:" + seconds + " секунд(а)");
 						else if (_started)
-							Announcements.getInstance().announceToAll("До конца TvT эвента осталось:" + seconds + " секунд(а)");
+							Announcements.getInstance().announceToAll("TvT Эвент: До конца TvT эвента осталось:" + seconds + " секунд(а)");
 						
 						break;
 				}
@@ -777,10 +777,10 @@ public class TvT
         processTopTeam();
 
         if (_topKills == 0)
-            Announcements.getInstance().announceToAll(_eventName + "(TvT): Объявляеться боевая ничья!");
+            Announcements.getInstance().announceToAll(_eventName + "(TvT Эвент: Объявляеться боевая ничья!");
         else
         {
-            Announcements.getInstance().announceToAll(_eventName + "В эвенте победило:" + _topTeam + "!");
+            Announcements.getInstance().announceToAll(_eventName + "TvT Эвент: В эвенте победило:" + _topTeam + "!");
             rewardTeam(_topTeam);
             playKneelAnimation(_topTeam);
         }
@@ -852,7 +852,7 @@ public class TvT
                     
                     if (ItemTable.getInstance().createDummyItem(_rewardId).isStackable())
                     {
-                        L2ItemInstance item = inv.addItem("TvT Event: " + _eventName, _rewardId, _rewardAmount, player, null);
+                        L2ItemInstance item = inv.addItem("TvT Эвент: " + _eventName, _rewardId, _rewardAmount, player, null);
                         
                         if (item != null)
                      	   iu.addNewItem(item);
@@ -861,7 +861,7 @@ public class TvT
                     {
                         for (int i=0;i<=_rewardAmount-1;i++)
                         {
-                        	L2ItemInstance item = inv.addItem("TvT Event: " + _eventName, _rewardId, 1, player, null);
+                        	L2ItemInstance item = inv.addItem("TvT Эвент: " + _eventName, _rewardId, 1, player, null);
                             
                             if (item != null)
                             	iu.addNewItem(item);
@@ -914,14 +914,14 @@ public class TvT
         	unspawnEventNpc();
         	cleanTvT();
         	_joining = false;
-        	Announcements.getInstance().announceToAll(_eventName + "TvT Event: Турнир прерван.");
+        	Announcements.getInstance().announceToAll(_eventName + "TvT Эвент: Турнир прерван.");
         	return;
         }
         _joining = false;
         _teleport = false;
         _started = false;
         unspawnEventNpc();
-        Announcements.getInstance().announceToAll(_eventName + "TvT Event: Турнир прерван.");
+        Announcements.getInstance().announceToAll(_eventName + "TvT Эвент: Турнир прерван.");
         teleportFinish();
 		cleanTvT();
 		_inProgress = false;
@@ -1022,7 +1022,7 @@ public class TvT
         _log.info("#####################################################################");
         
         for (String player : _savePlayers)
-            _log.info("Name: " + player + "    Team: " + _savePlayerTeams.get(_savePlayers.indexOf(player)));
+            _log.info("Игрок: " + player + "    Каманда: " + _savePlayerTeams.get(_savePlayers.indexOf(player)));
         
         _log.info("");
         _log.info("");
@@ -1514,7 +1514,7 @@ public class TvT
     
     public static void cleanTvT()
     {
-    	_log.info("TvT : Cleaning players.");
+    	_log.info("TvT Эвент: Cleaning players.");
     	for (L2PcInstance player : _players)
     	{
     		if(player != null)
@@ -1533,7 +1533,7 @@ public class TvT
         			player._inEventTvT = false;
             }
     	}
-    	_log.info("TvT : Cleaning teams.");
+    	_log.info("TvT Эвент: Cleaning teams.");
     	for (String team : _teams)
     	{
     		int index = _teams.indexOf(team);
@@ -1563,7 +1563,7 @@ public class TvT
     
     public static void teleportFinish()
     {
-        Announcements.getInstance().announceToAll(_eventName + "TvT Event:Через 20 секунд будете телепортированы на арену!");
+        Announcements.getInstance().announceToAll(_eventName + "TvT Эвент: Через 20 секунд будете телепортированы на арену!");
 
         ThreadPoolManager.getInstance().scheduleGeneral(new Runnable()
         {
@@ -1688,7 +1688,7 @@ public class TvT
 	{
 	    if(Config.TVT_CLOSE_COLISEUM_DOORS == true)
 		{   
-			Announcements.getInstance().announceToAll("Двери в Колизей закрываются, ТvТ эвент начился!");
+			Announcements.getInstance().announceToAll("TvT Эвент: Двери в Колизей закрываются, ТvТ эвент начился!");
 			DoorTable.getInstance().getDoor(24190001).closeMe();
 			DoorTable.getInstance().getDoor(24190002).closeMe();
 			DoorTable.getInstance().getDoor(24190003).closeMe();
@@ -1705,7 +1705,7 @@ public class TvT
 		   DoorTable.getInstance().getDoor(24190002).openMe();
 		   DoorTable.getInstance().getDoor(24190003).openMe();
 		   DoorTable.getInstance().getDoor(24190004).openMe();
-		   Announcements.getInstance().announceToAll("Двери в Колизей открываются, TvT эвент закончился!");
+		   Announcements.getInstance().announceToAll("TvT Эвент: Двери в Колизей открываются, TvT эвент закончился!");
 		   _doorsClosed = false;
 		}
 	}
