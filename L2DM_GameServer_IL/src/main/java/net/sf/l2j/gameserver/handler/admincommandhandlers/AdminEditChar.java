@@ -202,7 +202,7 @@ public class AdminEditChar implements IAdminCommandHandler
 		{
 			//L2EMU_ADD
 			int totalcount = L2World.getInstance().getAllPlayers().size();
-			admin.sendMessage("there are "+totalcount+" players online.");
+			admin.sendMessage("Сейчас "+totalcount+" игроков онлайн.");
 			//L2EMU_ADD
 			try
 			{   
