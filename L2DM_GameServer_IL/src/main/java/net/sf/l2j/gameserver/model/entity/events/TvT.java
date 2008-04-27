@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2, or (at your option)
@@ -377,19 +377,19 @@ public class TvT
         }
         else if (Config.TVT_EVEN_TEAMS.equals("SHUFFLE") && !checkMinPlayers(_playersShuffle.size()))
         {
-            Announcements.getInstance().announceToAll("Not enough players for event. Min Requested : " + _minPlayers +", Participating : " + _playersShuffle.size());
+            Announcements.getInstance().announceToAll("Не хватает минимального количества игроков. Минимум:" + _minPlayers +", Зарегистрировалось:" + _playersShuffle.size());
             return;
         }
 		
 		if ((Config.TVT_EVEN_TEAMS.equals("BALANCE"))&&(_players.size()== 0))
 
         {
-            Announcements.getInstance().announceToAll("Not enough players for event.");
+            Announcements.getInstance().announceToAll("Не хватает минимального количества игроков.");
             return;
         }
         
         _joining = false;
-        Announcements.getInstance().announceToAll(_eventName + "(TvT): Teleport to team spot in 20 seconds!");
+        Announcements.getInstance().announceToAll(_eventName + "TvT Event:Через 20 секунд будете телепортированы на арену!");
 
         setUserData();
         ThreadPoolManager.getInstance().scheduleGeneral(new Runnable()
@@ -452,7 +452,7 @@ public class TvT
         }
         else if (Config.TVT_EVEN_TEAMS.equals("SHUFFLE") && !checkMinPlayers(_playersShuffle.size()))
         {
-        	Announcements.getInstance().announceToAll("Not enough players for event. Min Requested : " + _minPlayers +", Participating : " + _playersShuffle.size());
+        	Announcements.getInstance().announceToAll("Не хватает минимального количества игроков. Минимум:" + _minPlayers +", Зарегистрировалось:" + _playersShuffle.size());
             return false;
         }
 		// in developing
@@ -463,12 +463,12 @@ public class TvT
 		
 		else if ((Config.TVT_EVEN_TEAMS.equals("BALANCE"))&&(_players.size() == 0))
         {
-            Announcements.getInstance().announceToAll("Not enough players for event.");
+            Announcements.getInstance().announceToAll("Не хватает минимального количества игроков");
             return false;
         }
         // end 
         _joining = false;
-        Announcements.getInstance().announceToAll(_eventName + "(TvT): Teleport to team spot in 20 seconds!");
+        Announcements.getInstance().announceToAll(_eventName + "TvT Event:Через 20 секунд вы будете телепортированы на арену!");
 
         setUserData();
         ThreadPoolManager.getInstance().scheduleGeneral(new Runnable()
@@ -530,7 +530,7 @@ public class TvT
         
         _teleport = false;
         stand();
-        Announcements.getInstance().announceToAll(_eventName + "(TvT): Started. Go to kill your enemies!");
+        Announcements.getInstance().announceToAll(_eventName + "TvT Event:Убей врага, или он убъет тебя!");
         _started = true;
     }
     
@@ -554,7 +554,7 @@ public class TvT
         
         _teleport = false;
         stand();
-        Announcements.getInstance().announceToAll(_eventName + "(TvT): Started. Go to kill your enemies!");
+        Announcements.getInstance().announceToAll(_eventName + "TvT Event:Убей врага, или он убъет тебя!");
         _started = true;
         return true;
     }
@@ -620,11 +620,11 @@ public class TvT
 					case 3600: // 1 hour left
 						if (_joining)
 						{
-							Announcements.getInstance().announceToAll(_eventName + "(TvT): Joinable in " + _joiningLocationName + "!");
-							Announcements.getInstance().announceToAll("TvT Event: " + seconds / 60 / 60 + " hour(s) till registration close!");
+							Announcements.getInstance().announceToAll(_eventName + "(TvT): Добавление в " + _joiningLocationName + "!");
+							Announcements.getInstance().announceToAll("До конца регистрации на TvT эвент осталось:" + seconds / 60 / 60 + " час(а)");
 						}
 						else if (_started)
-							Announcements.getInstance().announceToAll("TvT Event: " + seconds / 60 / 60 + " hour(s) till event finish!");
+							Announcements.getInstance().announceToAll("До конца TvT эвента осталось:" + seconds / 60 / 60 + " час(а)");
 
 						break;
 					case 1800: // 30 minutes left
@@ -641,10 +641,10 @@ public class TvT
 						{
 							removeOfflinePlayers();
 							Announcements.getInstance().announceToAll(_eventName + "(TvT): Joinable in " + _joiningLocationName + "!");
-							Announcements.getInstance().announceToAll("TvT Event: " + seconds / 60 + " minute(s) till registration close!");
+							Announcements.getInstance().announceToAll("До конца регистрации на TvT эвент осталось:" + seconds / 60 + " минут(а)");
 						}
 						else if (_started)
-							Announcements.getInstance().announceToAll("TvT Event: " + seconds / 60 + " minute(s) till event finish!");
+							Announcements.getInstance().announceToAll("До конца TvT эвента осталось:" + seconds / 60 + " минут(а)");
 						
 						break;
 					case 30: // 30 seconds left
@@ -658,11 +658,11 @@ public class TvT
 					case 2: // 2 seconds left
 					case 1: // 1 seconds left
 						if (_joining)
-							Announcements.getInstance().announceToAll("TvT Event: " + seconds + " second(s) till registration close!");
+							Announcements.getInstance().announceToAll("До конца регистрации на TvT эвент осталось:" + seconds + " секунд(а)");
 						else if (_teleport)
-							Announcements.getInstance().announceToAll("TvT Event: " + seconds + " seconds(s) till start fight!");
+							Announcements.getInstance().announceToAll("До начало TvT эвента осталось:" + seconds + " секунд(а)");
 						else if (_started)
-							Announcements.getInstance().announceToAll("TvT Event: " + seconds + " second(s) till event finish!");
+							Announcements.getInstance().announceToAll("До конца TvT эвента осталось:" + seconds + " секунд(а)");
 						
 						break;
 				}
@@ -777,21 +777,21 @@ public class TvT
         processTopTeam();
 
         if (_topKills == 0)
-            Announcements.getInstance().announceToAll(_eventName + "(TvT): No team wins the match(nobody killed).");
+            Announcements.getInstance().announceToAll(_eventName + "(TvT): Объявляеться боевая ничья!");
         else
         {
-            Announcements.getInstance().announceToAll(_eventName + "(TvT): " + _topTeam + "'s win the match! " + _topKills + " kills.");
+            Announcements.getInstance().announceToAll(_eventName + "В эвенте победило:" + _topTeam + "!");
             rewardTeam(_topTeam);
             playKneelAnimation(_topTeam);
         }
         
         if(Config.TVT_ANNOUNCE_TEAM_STATS)
         {
-            Announcements.getInstance().announceToAll(_eventName + " Team Statistics:");
+            Announcements.getInstance().announceToAll(_eventName + " Командная статистика:");
             for (String team : _teams)
             {
                 int _kills = teamKillsCount(team);
-                Announcements.getInstance().announceToAll("Team: " + team + " - Kills: " + _kills);
+                Announcements.getInstance().announceToAll("Команда: " + team + " - Убийств: " + _kills);
             }
         }
         if((_doorsClosed == true)&&(Config.TVT_CLOSE_COLISEUM_DOORS == true))
@@ -894,7 +894,7 @@ public class TvT
                     NpcHtmlMessage nhm = new NpcHtmlMessage(5);
                     TextBuilder replyMSG = new TextBuilder("");
 
-                    replyMSG.append("<html><body>Your team wins the event. Look in your inventory for the reward.</body></html>");
+                    replyMSG.append("<html><body>" + _topTeam + " П О Б Е Д И Л А !<br> И вы, как учасник турнира, получаете небольшой приз от администации сервера!</body></html>");
 
                     nhm.setHtml(replyMSG.toString());
                     player.sendPacket(nhm);
@@ -914,14 +914,14 @@ public class TvT
         	unspawnEventNpc();
         	cleanTvT();
         	_joining = false;
-        	Announcements.getInstance().announceToAll(_eventName + "(TvT): Match aborted!");
+        	Announcements.getInstance().announceToAll(_eventName + "TvT Event: Турнир прерван.");
         	return;
         }
         _joining = false;
         _teleport = false;
         _started = false;
         unspawnEventNpc();
-        Announcements.getInstance().announceToAll(_eventName + "(TvT): Match aborted!");
+        Announcements.getInstance().announceToAll(_eventName + "TvT Event: Турнир прерван.");
         teleportFinish();
 		cleanTvT();
 		_inProgress = false;
@@ -1013,7 +1013,7 @@ public class TvT
         for (L2PcInstance player : _players)
         {
             if (player != null)
-                _log.info("Name: " + player.getName() + "   Team: " + player._teamNameTvT + "  Kills Done:" + player._countTvTkills);
+                _log.info("Игрок: " + player.getName() + "   Команда: " + player._teamNameTvT + "  Совершено убийств:" + player._countTvTkills);
         }
         
         _log.info("");
@@ -1366,11 +1366,11 @@ public class TvT
     {
     	if (checkShufflePlayers(eventPlayer) || eventPlayer._inEventTvT)
     	{
-    		eventPlayer.sendMessage("You already participated in the event!");
+    		eventPlayer.sendMessage("Вы уже принимаете участие в эвенте!");
     		return false;
     	}
     	if (eventPlayer._inEventFOS || eventPlayer._inEventCTF || eventPlayer._inEventDM || eventPlayer._inEventVIP){
-    		eventPlayer.sendMessage("You already participated in another event!"); 
+    		eventPlayer.sendMessage("Вы уже принимаете участие в эвенте!"); 
             return false;
     	}
     	
@@ -1378,23 +1378,23 @@ public class TvT
     	{
     		if(player.getObjectId()==eventPlayer.getObjectId())
         	{
-                eventPlayer.sendMessage("You already participated in the event!"); 
+                eventPlayer.sendMessage("Вы уже принимаете участие в эвенте!"); 
                 return false;
         	}
     		else if(player.getName()==eventPlayer.getName())
         	{
-                eventPlayer.sendMessage("You already participated in the event!"); 
+                eventPlayer.sendMessage("Вы уже принимаете участие в эвенте!"); 
                 return false;
         	}
     	}
     	if(_players.contains(eventPlayer))
     	{
-            eventPlayer.sendMessage("You already participated in the event!"); 
+            eventPlayer.sendMessage("Вы уже принимаете участие в эвенте!"); 
             return false;
     	}
         if (CTF._savePlayers.contains(eventPlayer.getName())) 
         {
-            eventPlayer.sendMessage("You already participated in another event!"); 
+            eventPlayer.sendMessage("Вы уже принимаете участие в эвенте!"); 
             return false;
         }
 
@@ -1444,7 +1444,7 @@ public class TvT
         else if (Config.TVT_EVEN_TEAMS.equals("SHUFFLE"))
             return true;
 
-        eventPlayer.sendMessage("Too many players in team \"" + teamName + "\"");
+        eventPlayer.sendMessage("Слишком много человек в команде \"" + teamName + "\"");
         return false;
     }
 
@@ -1563,7 +1563,7 @@ public class TvT
     
     public static void teleportFinish()
     {
-        Announcements.getInstance().announceToAll(_eventName + "(TvT): Teleport back to participation NPC in 20 seconds!");
+        Announcements.getInstance().announceToAll(_eventName + "TvT Event:Через 20 секунд будете телепортированы на арену!");
 
         ThreadPoolManager.getInstance().scheduleGeneral(new Runnable()
         {
@@ -1688,7 +1688,7 @@ public class TvT
 	{
 	    if(Config.TVT_CLOSE_COLISEUM_DOORS == true)
 		{   
-			Announcements.getInstance().announceToAll("Closing Coliseum Doors, TvT event is starting soon...");
+			Announcements.getInstance().announceToAll("Двери в Колизей закрываются, ТvТ эвент начился!");
 			DoorTable.getInstance().getDoor(24190001).closeMe();
 			DoorTable.getInstance().getDoor(24190002).closeMe();
 			DoorTable.getInstance().getDoor(24190003).closeMe();
@@ -1705,7 +1705,7 @@ public class TvT
 		   DoorTable.getInstance().getDoor(24190002).openMe();
 		   DoorTable.getInstance().getDoor(24190003).openMe();
 		   DoorTable.getInstance().getDoor(24190004).openMe();
-		   Announcements.getInstance().announceToAll("Oppening Coliseum Doors, TvT event has finished!");
+		   Announcements.getInstance().announceToAll("Двери в Колизей открываются, TvT эвент закончился!");
 		   _doorsClosed = false;
 		}
 	}
