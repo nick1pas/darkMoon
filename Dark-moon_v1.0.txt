@@ -9,4 +9,4 @@
 -Update passive skills
 -fix core
 -add new admin html
--small corrections ckills
+-small corrections skills
