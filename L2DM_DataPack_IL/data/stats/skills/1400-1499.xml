@@ -422,9 +422,7 @@
   <set name="castRange" val="400"/>
   <set name="isMagic" val="true"/>
   <for>
-				<add order="0x40" stat="pDef" val="1800" />
-				<add order="0x40" stat="mDef" val="1350" />
-				<sub order="0x40" stat="debuffVuln" val="30" />
+    <effect count="1" name="Invincible" time="10" val="0"/> <!-- Retail info -->
   </for>
 </skill>
 
@@ -623,10 +621,7 @@
 		<player spell_force="2" />
   </cond>
   <for>
-			<effect count="1" name="Buff" time="30" val="0">
-				<add order="0x40" stat="pDef" val="1800" />
-				<add order="0x40" stat="mDef" val="1350" />
-				<sub order="0x40" stat="debuffVuln" val="30" />
+    <effect count="1" name="Invincible" time="30" val="0"/> <!-- Retail info -->
 			</effect>
   </for>
 </skill>
