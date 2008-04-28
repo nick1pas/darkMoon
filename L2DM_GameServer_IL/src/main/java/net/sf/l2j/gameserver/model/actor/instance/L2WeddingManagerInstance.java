@@ -1,4 +1,4 @@
-п»ї/*
+/*
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2, or (at your option)
@@ -176,7 +176,7 @@ public class L2WeddingManagerInstance extends L2NpcInstance
 
                     }
                     
-                    Announcements.getInstance().announceToAll("РџРѕР·РґСЂР°РІР»СЏРµРј РјРѕР»РѕРґРѕР¶РµРЅ!<br> "+player.getName()+" Рё "+ptarget.getName()+" РїРѕР¶РµРЅРёР»РёСЃСЊ!");            
+                    Announcements.getInstance().announceToAll("Поздравляем молодожен!<br> "+player.getName()+" и "+ptarget.getName()+" поженились!");            
                     
                     MSU = null;
                     

@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2, or (at your option)
@@ -202,7 +202,7 @@ public class AdminEditChar implements IAdminCommandHandler
 		{
 			//L2EMU_ADD
 			int totalcount = L2World.getInstance().getAllPlayers().size();
-			admin.sendMessage("Сейчас "+totalcount+" игроков он-лайн.");
+			admin.sendMessage("Сейчас "+totalcount+" игроков онлайн.");
 			//L2EMU_ADD
 			try
 			{   

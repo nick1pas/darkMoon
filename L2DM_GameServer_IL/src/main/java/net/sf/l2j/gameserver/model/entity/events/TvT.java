@@ -1,4 +1,4 @@
-п»ї/*
+/*
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2, or (at your option)
@@ -255,7 +255,7 @@ public class TvT
         
         _joining = true;
         spawnEventNpc(activeChar);
-        Announcements.getInstance().announceToAll(_eventName + "TvT Р­РІРµРЅС‚: Р”РѕР±Р°РІР»РµРЅРёРµ РІ: " + _joiningLocationName + "!");
+        Announcements.getInstance().announceToAll(_eventName + "TvT Эвент: Добавление в: " + _joiningLocationName + "!");
     }
 
     public static void startJoin()
@@ -269,7 +269,7 @@ public class TvT
         
         _joining = true;
         spawnEventNpc();
-        Announcements.getInstance().announceToAll(_eventName + "TvT Р­РІРµРЅС‚: Р”РѕР±Р°РІР»РµРЅРёРµ РІ: " + _joiningLocationName + "!");
+        Announcements.getInstance().announceToAll(_eventName + "TvT Эвент: Добавление в: " + _joiningLocationName + "!");
     }
     
     public static boolean startAutoJoin()
@@ -282,7 +282,7 @@ public class TvT
         
         _joining = true;
         spawnEventNpc();
-        Announcements.getInstance().announceToAll(_eventName + "TvT Р­РІРµРЅС‚: Р”РѕР±Р°РІР»РµРЅРёРµ РІ: " + _joiningLocationName + "!");
+        Announcements.getInstance().announceToAll(_eventName + "TvT Эвент: Добавление в: " + _joiningLocationName + "!");
         return true;
     }
     
@@ -377,19 +377,19 @@ public class TvT
         }
         else if (Config.TVT_EVEN_TEAMS.equals("SHUFFLE") && !checkMinPlayers(_playersShuffle.size()))
         {
-            Announcements.getInstance().announceToAll("РќРµ С…РІР°С‚Р°РµС‚ РјРёРЅРёРјР°Р»СЊРЅРѕРіРѕ РєРѕР»РёС‡РµСЃС‚РІР° РёРіСЂРѕРєРѕРІ. РњРёРЅРёРјСѓРј:" + _minPlayers +", Р—Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°Р»РѕСЃСЊ:" + _playersShuffle.size());
+            Announcements.getInstance().announceToAll("Не хватает минимального количества игроков. Минимум:" + _minPlayers +", Зарегистрировалось:" + _playersShuffle.size());
             return;
         }
 		
 		if ((Config.TVT_EVEN_TEAMS.equals("BALANCE"))&&(_players.size()== 0))
 
         {
-            Announcements.getInstance().announceToAll("РќРµ С…РІР°С‚Р°РµС‚ РјРёРЅРёРјР°Р»СЊРЅРѕРіРѕ РєРѕР»РёС‡РµСЃС‚РІР° РёРіСЂРѕРєРѕРІ.");
+            Announcements.getInstance().announceToAll("Не хватает минимального количества игроков.");
             return;
         }
         
         _joining = false;
-        Announcements.getInstance().announceToAll(_eventName + "TvT Event:Р§РµСЂРµР· 20 СЃРµРєСѓРЅРґ Р±СѓРґРµС‚Рµ С‚РµР»РµРїРѕСЂС‚РёСЂРѕРІР°РЅС‹ РЅР° Р°СЂРµРЅСѓ!");
+        Announcements.getInstance().announceToAll(_eventName + "TvT Event:Через 20 секунд будете телепортированы на арену!");
 
         setUserData();
         ThreadPoolManager.getInstance().scheduleGeneral(new Runnable()
@@ -452,7 +452,7 @@ public class TvT
         }
         else if (Config.TVT_EVEN_TEAMS.equals("SHUFFLE") && !checkMinPlayers(_playersShuffle.size()))
         {
-        	Announcements.getInstance().announceToAll("РќРµ С…РІР°С‚Р°РµС‚ РјРёРЅРёРјР°Р»СЊРЅРѕРіРѕ РєРѕР»РёС‡РµСЃС‚РІР° РёРіСЂРѕРєРѕРІ. РњРёРЅРёРјСѓРј:" + _minPlayers +", Р—Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°Р»РѕСЃСЊ:" + _playersShuffle.size());
+        	Announcements.getInstance().announceToAll("Не хватает минимального количества игроков. Минимум:" + _minPlayers +", Зарегистрировалось:" + _playersShuffle.size());
             return false;
         }
 		// in developing
@@ -463,12 +463,12 @@ public class TvT
 		
 		else if ((Config.TVT_EVEN_TEAMS.equals("BALANCE"))&&(_players.size() == 0))
         {
-            Announcements.getInstance().announceToAll("РќРµ С…РІР°С‚Р°РµС‚ РјРёРЅРёРјР°Р»СЊРЅРѕРіРѕ РєРѕР»РёС‡РµСЃС‚РІР° РёРіСЂРѕРєРѕРІ");
+            Announcements.getInstance().announceToAll("Не хватает минимального количества игроков");
             return false;
         }
         // end 
         _joining = false;
-        Announcements.getInstance().announceToAll(_eventName + "TvT Event:Р§РµСЂРµР· 20 СЃРµРєСѓРЅРґ РІС‹ Р±СѓРґРµС‚Рµ С‚РµР»РµРїРѕСЂС‚РёСЂРѕРІР°РЅС‹ РЅР° Р°СЂРµРЅСѓ!");
+        Announcements.getInstance().announceToAll(_eventName + "TvT Event:Через 20 секунд вы будете телепортированы на арену!");
 
         setUserData();
         ThreadPoolManager.getInstance().scheduleGeneral(new Runnable()
@@ -530,7 +530,7 @@ public class TvT
         
         _teleport = false;
         stand();
-        Announcements.getInstance().announceToAll(_eventName + "TvT Р­РІРµРЅС‚: РЈР±РµР№ РІСЂР°РіР°, РёР»Рё РѕРЅ СѓР±СЉРµС‚ С‚РµР±СЏ!");
+        Announcements.getInstance().announceToAll(_eventName + "TvT Эвент: Убей врага, или он убъет тебя!");
         _started = true;
     }
     
@@ -554,7 +554,7 @@ public class TvT
         
         _teleport = false;
         stand();
-        Announcements.getInstance().announceToAll(_eventName + "TvT Р­РІРµРЅС‚: РЈР±РµР№ РІСЂР°РіР°, РёР»Рё РѕРЅ СѓР±СЉРµС‚ С‚РµР±СЏ!");
+        Announcements.getInstance().announceToAll(_eventName + "TvT Эвент: Убей врага, или он убъет тебя!");
         _started = true;
         return true;
     }
@@ -620,11 +620,11 @@ public class TvT
 					case 3600: // 1 hour left
 						if (_joining)
 						{
-							Announcements.getInstance().announceToAll(_eventName + "TvT Р­РІРµРЅС‚: Р”РѕР±Р°РІР»РµРЅРёРµ РІ " + _joiningLocationName + "!");
-							Announcements.getInstance().announceToAll("TvT Р­РІРµРЅС‚: Р”Рѕ РєРѕРЅС†Р° СЂРµРіРёСЃС‚СЂР°С†РёРё РЅР° TvT СЌРІРµРЅС‚ РѕСЃС‚Р°Р»РѕСЃСЊ:" + seconds / 60 / 60 + " С‡Р°СЃ(Р°)");
+							Announcements.getInstance().announceToAll(_eventName + "TvT Эвент: Добавление в " + _joiningLocationName + "!");
+							Announcements.getInstance().announceToAll("TvT Эвент: До конца регистрации на TvT эвент осталось:" + seconds / 60 / 60 + " час(а)");
 						}
 						else if (_started)
-							Announcements.getInstance().announceToAll("TvT Р­РІРµРЅС‚: Р”Рѕ РєРѕРЅС†Р° TvT СЌРІРµРЅС‚Р° РѕСЃС‚Р°Р»РѕСЃСЊ:" + seconds / 60 / 60 + " С‡Р°СЃ(Р°)");
+							Announcements.getInstance().announceToAll("TvT Эвент: До конца TvT эвента осталось:" + seconds / 60 / 60 + " час(а)");
 
 						break;
 					case 1800: // 30 minutes left
@@ -640,11 +640,11 @@ public class TvT
 						if (_joining)
 						{
 							removeOfflinePlayers();
-							Announcements.getInstance().announceToAll(_eventName + "TvT Р­РІРµРЅС‚: Р”РѕР±Р°РІР»РµРЅРёРµ РІ " + _joiningLocationName + "!");
-							Announcements.getInstance().announceToAll("TvT Р­РІРµРЅС‚: Р”Рѕ РєРѕРЅС†Р° СЂРµРіРёСЃС‚СЂР°С†РёРё РЅР° TvT СЌРІРµРЅС‚ РѕСЃС‚Р°Р»РѕСЃСЊ:" + seconds / 60 + " РјРёРЅСѓС‚(Р°)");
+							Announcements.getInstance().announceToAll(_eventName + "TvT Эвент: Добавление в " + _joiningLocationName + "!");
+							Announcements.getInstance().announceToAll("TvT Эвент: До конца регистрации на TvT эвент осталось:" + seconds / 60 + " минут(а)");
 						}
 						else if (_started)
-							Announcements.getInstance().announceToAll("TvT Р­РІРµРЅС‚: Р”Рѕ РєРѕРЅС†Р° TvT СЌРІРµРЅС‚Р° РѕСЃС‚Р°Р»РѕСЃСЊ:" + seconds / 60 + " РјРёРЅСѓС‚(Р°)");
+							Announcements.getInstance().announceToAll("TvT Эвент: До конца TvT эвента осталось:" + seconds / 60 + " минут(а)");
 						
 						break;
 					case 30: // 30 seconds left
@@ -658,11 +658,11 @@ public class TvT
 					case 2: // 2 seconds left
 					case 1: // 1 seconds left
 						if (_joining)
-							Announcements.getInstance().announceToAll("TvT Р­РІРµРЅС‚: Р”Рѕ РєРѕРЅС†Р° СЂРµРіРёСЃС‚СЂР°С†РёРё РЅР° TvT СЌРІРµРЅС‚ РѕСЃС‚Р°Р»РѕСЃСЊ:" + seconds + " СЃРµРєСѓРЅРґ(Р°)");
+							Announcements.getInstance().announceToAll("TvT Эвент: До конца регистрации на TvT эвент осталось:" + seconds + " секунд(а)");
 						else if (_teleport)
-							Announcements.getInstance().announceToAll("TvT Р­РІРµРЅС‚: Р”Рѕ РЅР°С‡Р°Р»Рѕ TvT СЌРІРµРЅС‚Р° РѕСЃС‚Р°Р»РѕСЃСЊ:" + seconds + " СЃРµРєСѓРЅРґ(Р°)");
+							Announcements.getInstance().announceToAll("TvT Эвент: До начало TvT эвента осталось:" + seconds + " секунд(а)");
 						else if (_started)
-							Announcements.getInstance().announceToAll("TvT Р­РІРµРЅС‚: Р”Рѕ РєРѕРЅС†Р° TvT СЌРІРµРЅС‚Р° РѕСЃС‚Р°Р»РѕСЃСЊ:" + seconds + " СЃРµРєСѓРЅРґ(Р°)");
+							Announcements.getInstance().announceToAll("TvT Эвент: До конца TvT эвента осталось:" + seconds + " секунд(а)");
 						
 						break;
 				}
@@ -777,21 +777,21 @@ public class TvT
         processTopTeam();
 
         if (_topKills == 0)
-            Announcements.getInstance().announceToAll(_eventName + "(TvT Р­РІРµРЅС‚: РћР±СЉСЏРІР»СЏРµС‚СЊСЃСЏ Р±РѕРµРІР°СЏ РЅРёС‡СЊСЏ!");
+            Announcements.getInstance().announceToAll(_eventName + "(TvT Эвент: Объявляеться боевая ничья!");
         else
         {
-            Announcements.getInstance().announceToAll(_eventName + "TvT Р­РІРµРЅС‚: Р’ СЌРІРµРЅС‚Рµ РїРѕР±РµРґРёР»Рѕ:" + _topTeam + "!");
+            Announcements.getInstance().announceToAll(_eventName + "TvT Эвент: В эвенте победило:" + _topTeam + "!");
             rewardTeam(_topTeam);
             playKneelAnimation(_topTeam);
         }
         
         if(Config.TVT_ANNOUNCE_TEAM_STATS)
         {
-            Announcements.getInstance().announceToAll(_eventName + " РљРѕРјР°РЅРґРЅР°СЏ СЃС‚Р°С‚РёСЃС‚РёРєР°:");
+            Announcements.getInstance().announceToAll(_eventName + " Командная статистика:");
             for (String team : _teams)
             {
                 int _kills = teamKillsCount(team);
-                Announcements.getInstance().announceToAll("РљРѕРјР°РЅРґР°: " + team + " - РЈР±РёР№СЃС‚РІ: " + _kills);
+                Announcements.getInstance().announceToAll("Команда: " + team + " - Убийств: " + _kills);
             }
         }
         if((_doorsClosed == true)&&(Config.TVT_CLOSE_COLISEUM_DOORS == true))
@@ -852,7 +852,7 @@ public class TvT
                     
                     if (ItemTable.getInstance().createDummyItem(_rewardId).isStackable())
                     {
-                        L2ItemInstance item = inv.addItem("TvT Р­РІРµРЅС‚: " + _eventName, _rewardId, _rewardAmount, player, null);
+                        L2ItemInstance item = inv.addItem("TvT Эвент: " + _eventName, _rewardId, _rewardAmount, player, null);
                         
                         if (item != null)
                      	   iu.addNewItem(item);
@@ -861,7 +861,7 @@ public class TvT
                     {
                         for (int i=0;i<=_rewardAmount-1;i++)
                         {
-                        	L2ItemInstance item = inv.addItem("TvT Р­РІРµРЅС‚: " + _eventName, _rewardId, 1, player, null);
+                        	L2ItemInstance item = inv.addItem("TvT Эвент: " + _eventName, _rewardId, 1, player, null);
                             
                             if (item != null)
                             	iu.addNewItem(item);
@@ -894,7 +894,7 @@ public class TvT
                     NpcHtmlMessage nhm = new NpcHtmlMessage(5);
                     TextBuilder replyMSG = new TextBuilder("");
 
-                    replyMSG.append("<html><body>" + _topTeam + " Рџ Рћ Р‘ Р• Р” Р Р› Рђ !<br> Р РІС‹, РєР°Рє СѓС‡Р°СЃРЅРёРє С‚СѓСЂРЅРёСЂР°, РїРѕР»СѓС‡Р°РµС‚Рµ РЅРµР±РѕР»СЊС€РѕР№ РїСЂРёР· РѕС‚ Р°РґРјРёРЅРёСЃС‚Р°С†РёРё СЃРµСЂРІРµСЂР°!</body></html>");
+                    replyMSG.append("<html><body>" + _topTeam + " П О Б Е Д И Л А !И вы, как учасник турнира, получаете небольшой приз от администации сервера!</body></html>");
 
                     nhm.setHtml(replyMSG.toString());
                     player.sendPacket(nhm);
@@ -914,14 +914,14 @@ public class TvT
         	unspawnEventNpc();
         	cleanTvT();
         	_joining = false;
-        	Announcements.getInstance().announceToAll(_eventName + "TvT Р­РІРµРЅС‚: РўСѓСЂРЅРёСЂ РїСЂРµСЂРІР°РЅ.");
+        	Announcements.getInstance().announceToAll(_eventName + "TvT Эвент: Турнир прерван.");
         	return;
         }
         _joining = false;
         _teleport = false;
         _started = false;
         unspawnEventNpc();
-        Announcements.getInstance().announceToAll(_eventName + "TvT Р­РІРµРЅС‚: РўСѓСЂРЅРёСЂ РїСЂРµСЂРІР°РЅ.");
+        Announcements.getInstance().announceToAll(_eventName + "TvT Эвент: Турнир прерван.");
         teleportFinish();
 		cleanTvT();
 		_inProgress = false;
@@ -1013,7 +1013,7 @@ public class TvT
         for (L2PcInstance player : _players)
         {
             if (player != null)
-                _log.info("РРіСЂРѕРє: " + player.getName() + "   РљРѕРјР°РЅРґР°: " + player._teamNameTvT + "  РЎРѕРІРµСЂС€РµРЅРѕ СѓР±РёР№СЃС‚РІ:" + player._countTvTkills);
+                _log.info("Игрок: " + player.getName() + "   Команда: " + player._teamNameTvT + "  Совершено убийств:" + player._countTvTkills);
         }
         
         _log.info("");
@@ -1022,7 +1022,7 @@ public class TvT
         _log.info("#####################################################################");
         
         for (String player : _savePlayers)
-            _log.info("РРіСЂРѕРє: " + player + "    РљР°РјР°РЅРґР°: " + _savePlayerTeams.get(_savePlayers.indexOf(player)));
+            _log.info("Игрок: " + player + "    Каманда: " + _savePlayerTeams.get(_savePlayers.indexOf(player)));
         
         _log.info("");
         _log.info("");
@@ -1366,11 +1366,11 @@ public class TvT
     {
     	if (checkShufflePlayers(eventPlayer) || eventPlayer._inEventTvT)
     	{
-    		eventPlayer.sendMessage("Р’С‹ СѓР¶Рµ РїСЂРёРЅРёРјР°РµС‚Рµ СѓС‡Р°СЃС‚РёРµ РІ СЌРІРµРЅС‚Рµ!");
+    		eventPlayer.sendMessage("Вы уже принимаете участие в эвенте!");
     		return false;
     	}
     	if (eventPlayer._inEventFOS || eventPlayer._inEventCTF || eventPlayer._inEventDM || eventPlayer._inEventVIP){
-    		eventPlayer.sendMessage("Р’С‹ СѓР¶Рµ РїСЂРёРЅРёРјР°РµС‚Рµ СѓС‡Р°СЃС‚РёРµ РІ СЌРІРµРЅС‚Рµ!"); 
+    		eventPlayer.sendMessage("Вы уже принимаете участие в эвенте!"); 
             return false;
     	}
     	
@@ -1378,23 +1378,23 @@ public class TvT
     	{
     		if(player.getObjectId()==eventPlayer.getObjectId())
         	{
-                eventPlayer.sendMessage("Р’С‹ СѓР¶Рµ РїСЂРёРЅРёРјР°РµС‚Рµ СѓС‡Р°СЃС‚РёРµ РІ СЌРІРµРЅС‚Рµ!"); 
+                eventPlayer.sendMessage("Вы уже принимаете участие в эвенте!"); 
                 return false;
         	}
     		else if(player.getName()==eventPlayer.getName())
         	{
-                eventPlayer.sendMessage("Р’С‹ СѓР¶Рµ РїСЂРёРЅРёРјР°РµС‚Рµ СѓС‡Р°СЃС‚РёРµ РІ СЌРІРµРЅС‚Рµ!"); 
+                eventPlayer.sendMessage("Вы уже принимаете участие в эвенте!"); 
                 return false;
         	}
     	}
     	if(_players.contains(eventPlayer))
     	{
-            eventPlayer.sendMessage("Р’С‹ СѓР¶Рµ РїСЂРёРЅРёРјР°РµС‚Рµ СѓС‡Р°СЃС‚РёРµ РІ СЌРІРµРЅС‚Рµ!"); 
+            eventPlayer.sendMessage("Вы уже принимаете участие в эвенте!"); 
             return false;
     	}
         if (CTF._savePlayers.contains(eventPlayer.getName())) 
         {
-            eventPlayer.sendMessage("Р’С‹ СѓР¶Рµ РїСЂРёРЅРёРјР°РµС‚Рµ СѓС‡Р°СЃС‚РёРµ РІ СЌРІРµРЅС‚Рµ!"); 
+            eventPlayer.sendMessage("Вы уже принимаете участие в эвенте!"); 
             return false;
         }
 
@@ -1444,7 +1444,7 @@ public class TvT
         else if (Config.TVT_EVEN_TEAMS.equals("SHUFFLE"))
             return true;
 
-        eventPlayer.sendMessage("РЎР»РёС€РєРѕРј РјРЅРѕРіРѕ С‡РµР»РѕРІРµРє РІ РєРѕРјР°РЅРґРµ \"" + teamName + "\"");
+        eventPlayer.sendMessage("Слишком много человек в команде \"" + teamName + "\"");
         return false;
     }
 
@@ -1514,7 +1514,7 @@ public class TvT
     
     public static void cleanTvT()
     {
-    	_log.info("TvT Р­РІРµРЅС‚: Cleaning players.");
+    	_log.info("TvT Эвент: Cleaning players.");
     	for (L2PcInstance player : _players)
     	{
     		if(player != null)
@@ -1533,7 +1533,7 @@ public class TvT
         			player._inEventTvT = false;
             }
     	}
-    	_log.info("TvT Р­РІРµРЅС‚: Cleaning teams.");
+    	_log.info("TvT Эвент: Cleaning teams.");
     	for (String team : _teams)
     	{
     		int index = _teams.indexOf(team);
@@ -1563,7 +1563,7 @@ public class TvT
     
     public static void teleportFinish()
     {
-        Announcements.getInstance().announceToAll(_eventName + "TvT Р­РІРµРЅС‚: Р§РµСЂРµР· 20 СЃРµРєСѓРЅРґ Р±СѓРґРµС‚Рµ С‚РµР»РµРїРѕСЂС‚РёСЂРѕРІР°РЅС‹ РЅР° Р°СЂРµРЅСѓ!");
+        Announcements.getInstance().announceToAll(_eventName + "TvT Эвент: Через 20 секунд будете телепортированы на арену!");
 
         ThreadPoolManager.getInstance().scheduleGeneral(new Runnable()
         {
@@ -1688,7 +1688,7 @@ public class TvT
 	{
 	    if(Config.TVT_CLOSE_COLISEUM_DOORS == true)
 		{   
-			Announcements.getInstance().announceToAll("TvT Р­РІРµРЅС‚: Р”РІРµСЂРё РІ РљРѕР»РёР·РµР№ Р·Р°РєСЂС‹РІР°СЋС‚СЃСЏ, РўvРў СЌРІРµРЅС‚ РЅР°С‡РёР»СЃСЏ!");
+			Announcements.getInstance().announceToAll("TvT Эвент: Двери в Колизей закрываются, ТvТ эвент начился!");
 			DoorTable.getInstance().getDoor(24190001).closeMe();
 			DoorTable.getInstance().getDoor(24190002).closeMe();
 			DoorTable.getInstance().getDoor(24190003).closeMe();
@@ -1705,7 +1705,7 @@ public class TvT
 		   DoorTable.getInstance().getDoor(24190002).openMe();
 		   DoorTable.getInstance().getDoor(24190003).openMe();
 		   DoorTable.getInstance().getDoor(24190004).openMe();
-		   Announcements.getInstance().announceToAll("TvT Р­РІРµРЅС‚: Р”РІРµСЂРё РІ РљРѕР»РёР·РµР№ РѕС‚РєСЂС‹РІР°СЋС‚СЃСЏ, TvT СЌРІРµРЅС‚ Р·Р°РєРѕРЅС‡РёР»СЃСЏ!");
+		   Announcements.getInstance().announceToAll("TvT Эвент: Двери в Колизей открываются, TvT эвент закончился!");
 		   _doorsClosed = false;
 		}
 	}
