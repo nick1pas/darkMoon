@@ -1,16 +1,16 @@
-1) Добавить типы таргетов
+1) Р”РѕР±Р°РІРёС‚СЊ С‚РёРїС‹ С‚Р°СЂРіРµС‚РѕРІ
 target type = TARGET_AREA_CORPSE_MOB
 target type = TARGET_GROUND
 
-2) Добавить типы скилов
+2) Р”РѕР±Р°РІРёС‚СЊ С‚РёРїС‹ СЃРєРёР»РѕРІ
 skillType = SIGNET
 skillType = SIGNET_CASTTIME
 
-3) Добавить еффекты для НПЦ в скилах
+3) Р”РѕР±Р°РІРёС‚СЊ РµС„С„РµРєС‚С‹ РґР»СЏ РќРџР¦ РІ СЃРєРёР»Р°С…
 effectNpcId
 effectId
 
-4) Добавить эффекты скилов
+4) Р”РѕР±Р°РІРёС‚СЊ СЌС„С„РµРєС‚С‹ СЃРєРёР»РѕРІ
 effect = Signet
 effect = SignetNoise
 effect = SignetMDam
@@ -18,7 +18,7 @@ effect = SignetAntiSummon
 effect = ImmobileUntilAttacked
 effect = RecoverForce
 
-5) Добавить статы
+5) Р”РѕР±Р°РІРёС‚СЊ СЃС‚Р°С‚С‹
 stat = reflectSkillMeleePhysic
 stat = evadeMeleeSkill
 stat = cancelAttackerTarget
@@ -26,5 +26,5 @@ stat = BuffAmount
 stat = lostexp
 stat = pReuse
 
-6) Пофиксить скилы
+6) РџРѕС„РёРєСЃРёС‚СЊ СЃРєРёР»С‹
 fix skill Divine Inspiration
