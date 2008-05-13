@@ -1,4 +1,4 @@
-1) Добавить типы таргетов
+﻿1) Добавить типы таргетов
 target type = TARGET_AREA_CORPSE_MOB
 target type = TARGET_GROUND
 
@@ -19,9 +19,9 @@ effect = ImmobileUntilAttacked
 effect = RecoverForce
 
 5) Добавить статы
-stat = reflectSkillMeleePhysic
-stat = evadeMeleeSkill
-stat = cancelAttackerTarget
+stat = reflectSkillMeleePhysic (добавлено)
+stat = evadeMeleeSkill         (добавлено)
+stat = cancelAttackerTarget    (добавлено)
 stat = BuffAmount
 stat = lostexp
 stat = pReuse
