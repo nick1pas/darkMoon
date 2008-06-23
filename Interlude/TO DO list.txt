@@ -1,0 +1,30 @@
+﻿1) Добавить типы таргетов
+target type = TARGET_AREA_CORPSE_MOB
+target type = TARGET_GROUND
+
+2) Добавить типы скилов
+skillType = SIGNET
+skillType = SIGNET_CASTTIME
+
+3) Добавить еффекты для НПЦ в скилах
+effectNpcId
+effectId
+
+4) Добавить эффекты скилов
+effect = Signet
+effect = SignetNoise
+effect = SignetMDam
+effect = SignetAntiSummon
+effect = ImmobileUntilAttacked
+effect = RecoverForce
+
+5) Добавить статы
+stat = reflectSkillMeleePhysic (добавлено)
+stat = evadeMeleeSkill         (добавлено)
+stat = cancelAttackerTarget    (добавлено)
+stat = BuffAmount
+stat = lostexp
+stat = pReuse
+
+6) Пофиксить скилы
+fix skill Divine Inspiration
