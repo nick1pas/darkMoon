@@ -1,7 +1,0 @@
-Зайти в папку gameserver\data\jscript\quests
-
-Найти там фаил __init__.py Добавить в конце:
-'9998_Noble'
-
-
-Сохранить фаил 
