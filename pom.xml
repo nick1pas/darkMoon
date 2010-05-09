@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                      http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>l2jdm</groupId>
+  <artifactId>l2jdm-main</artifactId>
+  <version>0.0.1-beta</version>
+  <name>${project.artifactId}-${project.version}</name>
+  <packaging>pom</packaging>
+  <build>
+    <defaultGoal>compile</defaultGoal>
+  </build>
+  <modules>
+    <module>l2jdm-core</module>
+    <module>l2jdm-login</module>
+    <module>l2jdm-datapack</module>
+  </modules>
+</project>
