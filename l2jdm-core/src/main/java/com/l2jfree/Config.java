@@ -594,7 +594,20 @@ public class Config extends L2Config
 	public static double[]		PLAYER_XP_PERCENT_LOST;
 
 	public static boolean		COMPENSATE_QUEST_ITEM_REWARDS;
-
+	
+	/*
+	* 	by Apall (08.05.10)
+	*	Multipliers for Premium Services 
+	*/
+	public static boolean		PREMIUM_SERVICES_ENABLED;
+	public static float			PREMIUM_SERVICES_MULTIPLIER_XP;
+	public static float			PREMIUM_SERVICES_MULTIPLIER_SP;
+	public static float			PREMIUM_SERVICES_MULTIPLIER_DROP_ADENA;
+	public static float			PREMIUM_SERVICES_MULTIPLIER_DROP_ITEMS;
+	public static float			PREMIUM_SERVICES_MULTIPLIER_DROP_SPOIL;
+	public static float			PREMIUM_SERVICES_MULTIPLIER_DROP_QUEST;
+			
+			
 	// *******************************************************************************************
 	private static final class RatesConfig extends ConfigPropertiesLoader
 	{
@@ -697,6 +710,19 @@ public class Config extends L2Config
 			}
 
 			COMPENSATE_QUEST_ITEM_REWARDS = Boolean.parseBoolean(ratesSettings.getProperty("AdenaInsteadOfMoreItems", "False"));
+			
+			/*
+			* 	by Apall (08.05.10)
+			*	Fill multipliers for Premium Services 
+			*/
+			PREMIUM_SERVICES_ENABLED = Boolean.parseBoolean(ratesSettings.getProperty("PremiumServicesEnabled", "False"));
+			PREMIUM_SERVICES_MULTIPLIER_XP = Float.parseFloat(ratesSettings.getProperty("PremiumServicesMultiplierXP", "2.")); 
+			PREMIUM_SERVICES_MULTIPLIER_SP = Float.parseFloat(ratesSettings.getProperty("PremiumServicesMultiplierSP", "2.")); 
+			PREMIUM_SERVICES_MULTIPLIER_DROP_ADENA = Float.parseFloat(ratesSettings.getProperty("PremiumServicesMultiplierDropAdena", "2.")); 
+			PREMIUM_SERVICES_MULTIPLIER_DROP_ITEMS = Float.parseFloat(ratesSettings.getProperty("PremiumServicesMultiplierDropItems", "2.")); 
+			PREMIUM_SERVICES_MULTIPLIER_DROP_SPOIL = Float.parseFloat(ratesSettings.getProperty("PremiumServicesMultiplierDropSpoil", "2.")); 
+			PREMIUM_SERVICES_MULTIPLIER_DROP_QUEST = Float.parseFloat(ratesSettings.getProperty("PremiumServicesMultiplierDropQuest", "2.")); 
+
 		}
 	}
 
