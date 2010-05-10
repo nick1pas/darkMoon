@@ -1,0 +1,14 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+
+<!-- Created with Notepad :D -->
+<!-- © 2009 by Graf -->
+
+<list maintainEnchantment="true">
+  <item id="1">
+    <ingredient id="3470" count="50"/>
+    <production id="14164" count="1"/>
+    <production id="14163" count="2"/>
+    <production id="14165" count="2"/>
+  </item>
+
+</list>
