@@ -7048,4 +7048,20 @@ public abstract class L2Character extends L2Object
 	public void sendResistedAgainstMagicWeaklyMessage(L2Character attacker)
 	{
 	}
+	
+	/*
+	*	by Apall (08.05.10)
+	*	Premium Services state
+	*/
+	private int _PremiumServices;
+
+	public void setPremiumServices(int ServicesState)
+	{ 
+		_PremiumServices = ServicesState;
+	}      
+
+	public int getPremiumServices()
+	{ 
+		return _PremiumServices;	       
+	}
 }

@@ -563,6 +563,14 @@ public class L2Attackable extends L2Npc
 				L2Party attackerParty;
 				long exp;
 				int levelDiff, partyDmg, partyLvl, sp;
+				
+				/*
+				*	by Apall (08.05.10)
+				*	Premium Services extention
+				*/
+				long xpPremium;
+				int spPremium;
+				
 				float partyMul, penalty;
 				RewardInfo reward2;
 				int[] tmp;
@@ -615,7 +623,7 @@ public class L2Attackable extends L2Npc
 							// mob = 24, atk = 50, diff = 26 (no xp)
 							levelDiff = attacker.getLevel() - getLevel();
 
-							tmp = calculateExpAndSp(levelDiff, damage);
+							tmp = calculateExpAndSp(levelDiff, damage, attacker.getPremiumServices());
 							exp = tmp[0];
 							exp *= 1 - penalty;
 							sp = tmp[1];
@@ -765,12 +773,19 @@ public class L2Attackable extends L2Npc
 						levelDiff = partyLvl - getLevel();
 
 						// Calculate Exp and SP rewards
-						tmp = calculateExpAndSp(levelDiff, partyDmg);
+						tmp = calculateExpAndSp(levelDiff, partyDmg, 1); 
+						xpPremium = tmp[0]; 
+						spPremium = tmp[1]; 
+						
+						tmp = calculateExpAndSp(levelDiff, partyDmg, 0);
 						exp = tmp[0];
 						sp = tmp[1];
 
 						exp *= partyMul;
 						sp *= partyMul;
+						
+						xpPremium *= partyMul; 
+						spPremium *= partyMul;
 
 						// Check for an over-hit enabled strike
 						// (When in party, the over-hit exp bonus is given to the whole party and splitted proportionally through the party members)
@@ -781,6 +796,7 @@ public class L2Attackable extends L2Npc
 							{
 								player.sendPacket(SystemMessageId.OVER_HIT);
 								exp += calculateOverhitExp(exp);
+								xpPremium += calculateOverhitExp(xpPremium);
 							}
 						}
 
@@ -799,7 +815,7 @@ public class L2Attackable extends L2Npc
 
 						// Distribute Experience and SP rewards to L2PcInstance Party members in the known area of the last attacker
 						if (partyDmg > 0)
-							attackerParty.distributeXpAndSp(exp, sp, rewardedMembers, partyLvl, partyDmg, this);
+							attackerParty.distributeXpAndSp(xpPremium, spPremium, exp, sp, rewardedMembers, partyLvl, partyDmg, this);
 					}
 				}
 			}
@@ -1091,7 +1107,7 @@ public class L2Attackable extends L2Npc
 	private RewardItem calculateRewardItem(L2PcInstance lastAttacker, L2DropData drop, int levelModifier, boolean isSweep)
 	{
 		// Get default drop chance
-		final long dropChance = calculateDropChance(drop.getChance(), drop, isSweep, levelModifier);
+		final long dropChance = calculateDropChance(lastAttacker.getPremiumServices(), drop.getChance(), drop, isSweep, levelModifier);
 
 		return dropItem(dropChance, drop);
 	}
@@ -1116,8 +1132,9 @@ public class L2Attackable extends L2Npc
 		}
 	}
 
-	private long calculateDropChance(double chance, L2DropData drop, boolean isSweep, int levelModifier)
+	private long calculateDropChance(int PremiumServices, double chance, L2DropData drop, boolean isSweep, int levelModifier)
 	{
+		// Adena
 		if (drop != null && drop.getItemId() == PcInventory.ADENA_ID)
 		{
 			if (this instanceof L2RaidBossInstance)
@@ -1125,11 +1142,21 @@ public class L2Attackable extends L2Npc
 			else if (this instanceof L2GrandBossInstance)
 				chance *= Config.RATE_DROP_ADENA_GRAND_BOSS;
 			else
+			{
 				chance *= Config.RATE_DROP_ADENA;
+				if(PremiumServices == 1)
+				{
+					chance *= Config.PREMIUM_SERVICES_MULTIPLIER_DROP_ADENA;
+				}
+			}
 		}
 		else if (drop != null && ItemTable.isSealStone(drop.getItemId()))
 		{
 			chance *= Config.RATE_DROP_SEALSTONE;
+			if(PremiumServices == 1)
+			{
+				chance *= Config.PREMIUM_SERVICES_MULTIPLIER_DROP_ITEMS;
+			}
 		}
 		else if (isSweep)
 		{
@@ -1138,7 +1165,13 @@ public class L2Attackable extends L2Npc
 			else if (this instanceof L2GrandBossInstance)
 				chance *= Config.RATE_DROP_SPOIL_GRAND_BOSS;
 			else
+			{
 				chance *= Config.RATE_DROP_SPOIL;
+				if(PremiumServices == 1)
+				{
+					chance *= Config.PREMIUM_SERVICES_MULTIPLIER_DROP_SPOIL;
+				}
+			}
 		}
 		else
 		{
@@ -1149,7 +1182,13 @@ public class L2Attackable extends L2Npc
 			else if (this instanceof L2GrandBossInstance)
 				chance *= Config.RATE_DROP_ITEMS_GRAND_BOSS;
 			else
+			{
 				chance *= Config.RATE_DROP_ITEMS;
+				if(PremiumServices == 1)
+				{
+					chance *= Config.PREMIUM_SERVICES_MULTIPLIER_DROP_ITEMS;
+				}	
+			}
 		}
 
 		if (isChampion())
@@ -1236,7 +1275,7 @@ public class L2Attackable extends L2Npc
 		// Get default drop chance for the category (that's the sum of chances for all items in the category)
 		// keep track of the base category chance as it'll be used later, if an item is drop from the category.
 		// for everything else, use the total "categoryDropChance"
-		final long categoryDropChance = calculateDropChance(categoryDrops.getCategoryChance(), null, false, levelModifier);
+		final long categoryDropChance = calculateDropChance(lastAttacker.getPremiumServices(), categoryDrops.getCategoryChance(), null, false, levelModifier);
 
 		// Check if an Item from this category must be dropped
 		if (Rnd.get(L2DropData.MAX_CHANCE) < categoryDropChance)
@@ -1257,7 +1296,7 @@ public class L2Attackable extends L2Npc
 			// At least 1 item will be dropped for sure.  So the chance will be adjusted to 100%
 			// if smaller.
 
-			final long dropChance = calculateDropChance(drop.getChance(), drop, false, levelModifier);
+			final long dropChance = calculateDropChance(lastAttacker.getPremiumServices(), drop.getChance(), drop, false, levelModifier);
 
 			return dropItem(Math.max(dropChance, L2DropData.MAX_CHANCE), drop);
 		}
@@ -2185,18 +2224,18 @@ public class L2Attackable extends L2Npc
 	 * @param damage The damages given by the attacker (L2PcInstance,
 	 *            L2SummonInstance or L2Party)
 	 */
-	private int[] calculateExpAndSp(int diff, int damage)
+	private int[] calculateExpAndSp(int diff, int damage, int PremiumServices)
 	{
 		double xp;
 		double sp;
 
 		if (diff < -5)
 			diff = -5; // makes possible to use ALT_GAME_EXPONENT configuration
-		xp = (double) getExpReward() * damage / getMaxHp();
+		xp = (double) getExpReward(PremiumServices) * damage / getMaxHp();
 		if (Config.ALT_GAME_EXPONENT_XP != 0)
 			xp *= Math.pow(2., -diff / Config.ALT_GAME_EXPONENT_XP);
 
-		sp = (double) getSpReward() * damage / getMaxHp();
+		sp = (double) getSpReward(PremiumServices) * damage / getMaxHp();
 		if (Config.ALT_GAME_EXPONENT_SP != 0)
 			sp *= Math.pow(2., -diff / Config.ALT_GAME_EXPONENT_SP);
 

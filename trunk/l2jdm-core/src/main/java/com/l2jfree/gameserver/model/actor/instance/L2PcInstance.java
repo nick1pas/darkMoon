@@ -371,6 +371,15 @@ public final class L2PcInstance extends L2Playable
 	private static final String	GET_CREATION_DATE				= "SELECT lastClaim,birthDate FROM character_birthdays WHERE charId=?";
 	private static final String	CLAIM_CREATION_DAY				= "UPDATE character_birthdays SET lastClaim=? WHERE charId=?";
 
+	/*
+	*	by Apall (08.05.10)
+	*	Premium Services SQL String Definitions:
+	*/
+	private static final String INSERT_PREMIUM_SERVICES = "INSERT INTO account_premium (account_name,premium_services,premium_expires) values(?,?,?)"; 
+	private static final String UPDATE_PREMIUM_SERVICES = "UPDATE account_premium SET premium_services=?,premium_expires=? WHERE account_name=?";	
+	private static final String RESTORE_PREMIUM_SERVICES = "SELECT premium_services,premium_expires FROM account_premium WHERE account_name=?"; 
+	
+	
 	public static final int		REQUEST_TIMEOUT					= 15;
 
 	public static final int		STORE_PRIVATE_NONE				= 0;
@@ -389,7 +398,7 @@ public final class L2PcInstance extends L2Playable
 		SkillTreeTable.getInstance().getExpertiseLevel(4), // A
 		SkillTreeTable.getInstance().getExpertiseLevel(5), // S
 		SkillTreeTable.getInstance().getExpertiseLevel(6), // S80
-		SkillTreeTable.getInstance().getExpertiseLevel(7)  //S84
+		SkillTreeTable.getInstance().getExpertiseLevel(7)  // S84
 	};
 
 	private static final int[] COMMON_CRAFT_LEVELS = { 5, 20, 28, 36, 43, 49, 55, 62 };
@@ -622,7 +631,7 @@ public final class L2PcInstance extends L2Playable
 	private L2Weapon						_fistsWeaponItem;
 
 	private long							_uptime;
-	private final String							_accountName;
+	private final String					_accountName;
 
 	private Map<Integer, String>			_chars;
 
@@ -6624,6 +6633,12 @@ public final class L2PcInstance extends L2Playable
 				PcAppearance app = new PcAppearance(rset.getByte("face"), rset.getByte("hairColor"), rset.getByte("hairStyle"), female);
 
 				player = new L2PcInstance(objectId, template, rset.getString("account_name"), app);
+				/*
+				*	by Apall (08.05.10)
+				*	restorePremiumServices()
+				*/
+				restorePremiumServices(player, rset.getString("account_name"));
+				
 				player.setName(rset.getString("char_name"));
 				player._lastAccess = rset.getLong("lastAccess");
 
@@ -14335,4 +14350,142 @@ public final class L2PcInstance extends L2Playable
 			break;
 		}
 	}
+	
+	/*
+	*	by Apall (08.05.10)
+	*	Put current account in table "account_premium"
+	*/
+	private void createPremiumServices() 
+	{ 
+		Connection con = null; 
+		try 
+		{ 
+			con = L2DatabaseFactory.getInstance().getConnection(); 
+			// INSERT_PREMIUM_SERVICES = "INSERT INTO account_premium (account_name,premium_services,premium_expires) values(?,?,?)"; */
+			PreparedStatement statement = con.prepareStatement(INSERT_PREMIUM_SERVICES); 
+			// Prepare statement for query:
+			statement.setString(1, _accountName); 
+			statement.setInt(2, 0); 
+			statement.setLong(3, 0);   
+			// Now execute prepared:
+			statement.executeUpdate(); 
+			statement.close(); 
+		} 
+		catch (Exception e) 
+		{ 
+			_log.warn("createPremiumServices() error: could not insert char data in: " + e); 
+			e.printStackTrace(); 
+			return; 
+		} 
+		finally 
+		{ 
+			try 
+			{ 
+				if (con != null) 
+					con.close(); 
+			} 
+			catch (SQLException e) 
+			{ 
+				e.printStackTrace(); 
+			} 
+		} 
+	} 
+	
+	/*
+	*	by Apall (08.05.10)
+	*	Disable premium service for some account
+	*/
+	private static void disablePremiumServices(String account) 
+	{ 
+		Connection con = null; 
+		try 
+		{ 
+			con = L2DatabaseFactory.getInstance().getConnection(); 
+			/* UPDATE_PREMIUM_SERVICES = "UPDATE account_premium SET premium_services=?,premium_expires=? WHERE account_name=?"; */	
+			PreparedStatement statement = con.prepareStatement(UPDATE_PREMIUM_SERVICES); 
+			statement.setInt(1, 0); 
+			statement.setLong(2, 0); 
+			statement.setString(3, account); 
+			statement.execute(); 
+			statement.close(); 
+		} 
+		catch (SQLException e) 
+		{ 
+			_log.warn("disablePremiumServices(): could not change data for account " + account); 
+		} 
+		finally 
+		{ 
+			try 
+			{ 
+				if (con != null) 
+					con.close(); 
+			} 
+			catch (SQLException e) 
+			{ 
+				e.printStackTrace(); 
+			} 
+		}                
+	} 	
+	
+	/*
+	*	by Apall (08.05.10)
+	*	Restore premium service state for some account 
+	*/	
+	private static void restorePremiumServices(L2PcInstance player, String account) 
+	{ 
+		boolean success = false;  
+		Connection con = null; 
+		try 
+		{ 
+			con = L2DatabaseFactory.getInstance().getConnection(); 
+			/* RESTORE_PREMIUM_SERVICES = "SELECT premium_services,premium_expires FROM account_premium WHERE account_name=?"; */
+			PreparedStatement statement = con.prepareStatement(RESTORE_PREMIUM_SERVICES); 
+			statement.setString(1, account); 
+			ResultSet rset = statement.executeQuery(); 
+			while (rset.next()) 
+			{ 
+				success = true; 
+				if (Config.PREMIUM_SERVICES_ENABLED)
+				{ 
+					// If Premium Services time for this account is expired
+					if (rset.getLong("premium_expires") <= System.currentTimeMillis())
+					{ 
+						// Disable Premium Services
+						disablePremiumServices(account); 
+						player.setPremiumServices(0); 
+					} 
+					// Else restore Premium Services to state from SQL base
+					else 
+						player.setPremiumServices(rset.getInt("premium_services")); 
+				} 
+				// PREMIUM_SERVICES_ENABLED = False and character can not use Premium Services
+				else 
+					player.setPremiumServices(0); 
+			} 
+			statement.close(); 
+
+		} 
+		catch (Exception e) 
+		{ 
+			_log.warn("restorePremiumServices(): could not restore Premium Services data for " + account + "."+e); 
+			e.printStackTrace(); 
+		} 
+		finally 
+		{ 
+			try 
+			{ 
+				if (con != null) 
+					con.close(); 
+			} 
+			catch (SQLException e) 
+			{ 
+				e.printStackTrace(); 
+			} 
+		} 
+		if (success == false) 
+		{ 
+			player.createPremiumServices(); 
+			player.setPremiumServices(0); 
+		} 
+	} 
 }
