@@ -756,7 +756,7 @@ public class L2Party
 	 * @param rewardedMembers The list of L2PcInstance to reward
 	 * 
 	 */
-	public void distributeXpAndSp(long xpReward, int spReward, List<L2Playable> rewardedMembers, int topLvl, int partyDmg, L2Attackable target)
+	public void distributeXpAndSp(long xpRewardPremium, int spRewardPremium, long xpReward, int spReward, List<L2Playable> rewardedMembers, int topLvl, int partyDmg, L2Attackable target)
 	{
 		L2SummonInstance summon = null;
 		List<L2Playable> validMembers = getValidMembers(rewardedMembers, topLvl);
@@ -765,7 +765,7 @@ public class L2Party
 		double sqLevel;
 		double preCalculationExp;
 		double preCalculationSp;
-
+		
 		xpReward *= getExpBonus(validMembers.size());
 		spReward *= getSpBonus(validMembers.size());
 
@@ -783,7 +783,15 @@ public class L2Party
 			{
 				if (member.isDead())
 					continue;
-
+					
+				if (member.getPremiumServices() == 1)
+				{ 
+					xpRewardPremium *= getExpBonus(validMembers.size());
+					spRewardPremium *= getSpBonus(validMembers.size());
+					xpReward = xpRewardPremium; 
+					spReward = spRewardPremium; 
+				}
+				
 				penalty = 0;
 					
 				// The L2SummonInstance penalty

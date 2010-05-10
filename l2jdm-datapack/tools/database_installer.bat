@@ -73,6 +73,8 @@ echo Deleting all GameServer tables for new content.
 echo Installing new GameServer content.
 echo Account Data
 %mysqlPath% -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb% < ../sql/account_data.sql
+echo Account Premium
+%mysqlPath% -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb% < ../sql/account_premium.sql
 echo Armor
 %mysqlPath% -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb% < ../sql/armor.sql
 echo Armorsets
