@@ -1,0 +1,45 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+
+<!-- Created with Notepad :D -->
+<!-- © 2009 by Graf -->
+
+<list maintainEnchantment="true">
+
+  <item id="1">
+    <ingredient id="3470" count="100"/>
+    <production id="13432" count="1"/>
+    <production id="13438" count="1"/>
+    <production id="13137" count="1"/>
+    <production id="13439" count="1"/>
+    <production id="13440" count="1"/>
+  </item>
+
+  <item id="2">
+    <ingredient id="3470" count="100"/>
+    <production id="13433" count="1"/>
+    <production id="13441" count="1"/>
+    <production id="13138" count="1"/>
+    <production id="13442" count="1"/>
+    <production id="13443" count="1"/>
+  </item>
+  
+  <item id="3">
+    <ingredient id="3470" count="100"/>
+    <production id="13434" count="1"/>
+    <production id="13444" count="1"/>
+    <production id="13139" count="1"/>
+    <production id="13445" count="1"/>
+    <production id="13446" count="1"/>
+  </item>
+  
+  <item id="4">	
+    <ingredient id="3470" count="10"/>
+    <production id="13471" count="1"/>
+  </item>
+
+  <item id="4">	
+    <ingredient id="3470" count="10"/>
+    <production id="10119" count="1"/>
+  </item>
+
+</list>

@@ -36,7 +36,6 @@ public final class CoreInfo
 	
 	public static void showStartupInfo()
 	{
-
 		System.out.println("L2DarkMoon [starting version: " + coreVersion.getVersionNumber() + "]");
 	}
 	
