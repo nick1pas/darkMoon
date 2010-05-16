@@ -276,6 +276,9 @@ public class L2Party
 	 */
 	public boolean addPartyMember(L2PcInstance player)
 	{
+		if (getPartyMembers().contains(player))
+			return false;
+			
 		if (Config.MAX_PARTY_LEVEL_DIFFERENCE > 0)
 		{
 			int _min = _partyLvl;
@@ -756,7 +759,7 @@ public class L2Party
 	 * @param rewardedMembers The list of L2PcInstance to reward
 	 * 
 	 */
-	public void distributeXpAndSp(long xpRewardPremium, int spRewardPremium, long xpReward, int spReward, List<L2Playable> rewardedMembers, int topLvl, int partyDmg, L2Attackable target)
+	public void distributeXpAndSp(long xpReward, int spReward, List<L2Playable> rewardedMembers, int topLvl, int partyDmg, L2Attackable target)
 	{
 		L2SummonInstance summon = null;
 		List<L2Playable> validMembers = getValidMembers(rewardedMembers, topLvl);
@@ -765,7 +768,7 @@ public class L2Party
 		double sqLevel;
 		double preCalculationExp;
 		double preCalculationSp;
-		
+
 		xpReward *= getExpBonus(validMembers.size());
 		spReward *= getSpBonus(validMembers.size());
 
@@ -783,15 +786,7 @@ public class L2Party
 			{
 				if (member.isDead())
 					continue;
-					
-				if (member.getPremiumServices() == 1)
-				{ 
-					xpRewardPremium *= getExpBonus(validMembers.size());
-					spRewardPremium *= getSpBonus(validMembers.size());
-					xpReward = xpRewardPremium; 
-					spReward = spRewardPremium; 
-				}
-				
+
 				penalty = 0;
 					
 				// The L2SummonInstance penalty
@@ -1022,5 +1017,29 @@ public class L2Party
 	public synchronized L2PcInstance getLeader()
 	{
 		return _members == null ? null : _members.get(0);
+	}
+	
+	// Premium Services
+	public float getPartyPremiumServicesDropSuccessRate()
+	{
+		if (getMemberCount() < 2)
+		{
+			// Not valid party? No success ;)
+			return 0;
+		}
+		else
+		{
+			// Check all party members
+			int membersWithPremiumServices = 0;
+			for (L2PcInstance member : getPartyMembers())
+			{
+				if (member.getPremiumServices() == 1)
+				{
+					membersWithPremiumServices++;
+				}
+			}
+			float successRate = membersWithPremiumServices * (100 / getMemberCount());
+			return successRate;
+		}
 	}
 }

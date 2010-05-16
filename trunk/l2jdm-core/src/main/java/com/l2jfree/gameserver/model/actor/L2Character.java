@@ -220,6 +220,9 @@ public abstract class L2Character extends L2Object
 
 	private boolean					_isRaid								= false;
 	private boolean					_isFlying;
+	
+	// Premium Services State
+	private int 					_PremiumServices					= 0;
 
 	/**
 	 * Objects known by this object
@@ -7049,17 +7052,12 @@ public abstract class L2Character extends L2Object
 	{
 	}
 	
-	/*
-	*	by Apall (08.05.10)
-	*	Premium Services state
-	*/
-	private int _PremiumServices;
-
-	public void setPremiumServices(int ServicesState)
+	// Premium Services
+	public void setPremiumServices(int PremiumServicesState)
 	{ 
-		_PremiumServices = ServicesState;
+		_PremiumServices = PremiumServicesState;
 	}      
-
+	// Premium Services
 	public int getPremiumServices()
 	{ 
 		return _PremiumServices;	       

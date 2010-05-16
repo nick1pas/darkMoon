@@ -108,14 +108,93 @@ public class PcStat extends PlayableStat
 	@Override
 	public boolean addExpAndSp(long addToExp, int addToSp)
 	{
+		// See superAddExpAndSp()
+		return superAddExpAndSp(addToExp, 0, addToSp, 0);
+	}
+	/*
+	*	by Apall
+	* 	Vitality system like official
+	*/
+	public boolean addExpAndSp(long addToExp, int addToSp, boolean useVitality)
+	{
+		if (useVitality && Config.ENABLE_VITALITY)
+		{
+			// Default 
+			long addToExpVitalityBonus = addToExp;
+			int addToSpVitalityBonus = addToSp;
+			
+			// Calculatting final count of XP and SP with vitality
+			switch (_vitalityLevel)
+			{
+				case 1:
+					addToExpVitalityBonus *= Config.RATE_VITALITY_LEVEL_1;
+					addToSpVitalityBonus *= Config.RATE_VITALITY_LEVEL_1;
+					break;
+				case 2:
+					addToExpVitalityBonus *= Config.RATE_VITALITY_LEVEL_2;
+					addToSpVitalityBonus *= Config.RATE_VITALITY_LEVEL_2;
+					break;
+				case 3:
+					addToExpVitalityBonus *= Config.RATE_VITALITY_LEVEL_3;
+					addToSpVitalityBonus *= Config.RATE_VITALITY_LEVEL_3;
+					break;
+				case 4:
+					addToExpVitalityBonus *= Config.RATE_VITALITY_LEVEL_4;
+					addToSpVitalityBonus *= Config.RATE_VITALITY_LEVEL_4;
+					break;
+			}
+			// Old system was not correct
+			
+			// This is official-like method for calculate vitality bonuses
+			// Apply only if vitality bonus more than 0, because we must count only bonuses, not final number
+			// How it work:
+			// Exp: 100, Vitality 0 = Exp bonus: 0
+			// Exp: 100, Vitality 1 = Exp bonus: 100 x 1.5 - 100 = 50
+			// Exp: 100, Vitality 2 = Exp bonus: 100 x 2 - 100 = 100
+			// Exp: 100, Vitality 3 = Exp bonus: 100 x 2.5 - 100 = 150
+			// Exp: 100, Vitality 4 = Exp bonus: 100 x 3 - 100 = 200
+			// At vitality level 3 on default rates (x1) character will recieve 300% of normal exp (rates x3)
+			addToExpVitalityBonus = addToExpVitalityBonus - addToExp;
+			addToSpVitalityBonus = addToSpVitalityBonus - addToSp;
+			// See superAddExpAndSp()
+			return superAddExpAndSp(addToExp, addToExpVitalityBonus, addToSp, addToSpVitalityBonus);
+		}
+		// See addExpAndSp()
+		return addExpAndSp(addToExp, addToSp);
+	}
+
+	// Premium Services Extention
+	private boolean superAddExpAndSp(long addToExp, long addToExpVitalityBonus, int addToSp, int addToSpVitalityBonus)
+	{
 		float ratioTakenByPet = 0;
+
 		//Player is Gm and acces level is below or equal to GM_DONT_TAKE_EXPSP and is in party, don't give Xp/Sp
 		L2PcInstance activeChar = getActiveChar();
 		if (activeChar.isGM() && activeChar.getAccessLevel() <= Config.GM_DONT_TAKE_EXPSP && activeChar.isInParty())
 			return false;
-
+			
+		// Assign Premium Services multiplier WITHOUT vitality bonus of XP and SP
+		if (Config.PREMIUM_SERVICES_ENABLED)
+		{
+			if (activeChar.getPremiumServices() == 1)
+			{
+				addToExp *= Config.PREMIUM_SERVICES_MULTIPLIER_XP;
+				addToSp *= Config.PREMIUM_SERVICES_MULTIPLIER_SP;
+			}
+		}
+		// Now we can take additional bonuses from vitality
+		// If default rates is x1 and PS rates is x2 character will recieve exp and sp like on official server:
+		// Vitality: 0 - rates x2
+		// Vitality: 1 - rates x2.5
+		// Vitality: 2 - rates x3
+		// Vitality: 3 - rates x3.5
+		// Vitality: 4 - rates x4
+		addToExp = addToExp + addToExpVitalityBonus;
+		addToSp = addToSp + addToSpVitalityBonus;
+		
+		// And here begins usual XP and SP checks
+		
 		// if this player has a pet that takes from the owner's Exp, give the pet Exp now
-
 		if (activeChar.getPet() instanceof L2PetInstance)
 		{
 			L2PetInstance pet = (L2PetInstance) activeChar.getPet();
@@ -131,7 +210,7 @@ public class PcStat extends PlayableStat
 			addToExp = (long) (addToExp * (1 - ratioTakenByPet));
 			addToSp = (int) (addToSp * (1 - ratioTakenByPet));
 		}
-
+		
 		if (!super.addExpAndSp(addToExp, addToSp))
 			return false;
 
@@ -154,37 +233,10 @@ public class PcStat extends PlayableStat
 			sm.addNumber(addToSp);
 			activeChar.sendPacket(sm);
 		}
-
+		
 		return true;
 	}
-
-	public boolean addExpAndSp(long addToExp, int addToSp, boolean useVitality)
-	{
-		if (useVitality && Config.ENABLE_VITALITY)
-		{
-			switch (_vitalityLevel)
-			{
-				case 1:
-					addToExp *= Config.RATE_VITALITY_LEVEL_1;
-					addToSp *= Config.RATE_VITALITY_LEVEL_1;
-					break;
-				case 2:
-					addToExp *= Config.RATE_VITALITY_LEVEL_2;
-					addToSp *= Config.RATE_VITALITY_LEVEL_2;
-					break;
-				case 3:
-					addToExp *= Config.RATE_VITALITY_LEVEL_3;
-					addToSp *= Config.RATE_VITALITY_LEVEL_3;
-					break;
-				case 4:
-					addToExp *= Config.RATE_VITALITY_LEVEL_4;
-					addToSp *= Config.RATE_VITALITY_LEVEL_4;
-					break;
-			}
-		}
-		return addExpAndSp(addToExp, addToSp);
-	}
-
+	
 	@Override
 	public boolean removeExpAndSp(long addToExp, int addToSp)
 	{

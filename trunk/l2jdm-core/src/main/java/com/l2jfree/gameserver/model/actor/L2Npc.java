@@ -2595,31 +2595,22 @@ public class L2Npc extends L2Character
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 	}
 
-	/*
-	*	by Apall
-	*	Added Premium Service handler for XP and SP
-	*/
 	/**
 	 * Return the Exp Reward of this L2Npc contained in the L2NpcTemplate (modified by RATE_XP).<BR><BR>
 	 */
-	public int getExpReward(int PremiumServices)
+	public int getExpReward()
 	{
 		double rateXp = getStat().calcStat(Stats.MAX_HP, 1, this, null);
-		if(PremiumServices == 1)
-			return (int) (getTemplate().getRewardExp() * rateXp * Config.RATE_XP * Config.PREMIUM_SERVICES_MULTIPLIER_XP); 
-		else
-			return (int) (getTemplate().getRewardExp() * rateXp * Config.RATE_XP);
+		return (int) (getTemplate().getRewardExp() * rateXp * Config.RATE_XP);
 	}
+
 	/**
 	 * Return the SP Reward of this L2Npc contained in the L2NpcTemplate (modified by RATE_SP).<BR><BR>
 	 */
-	public int getSpReward(int PremiumServices)
+	public int getSpReward()
 	{
 		double rateSp = getStat().calcStat(Stats.MAX_HP, 1, this, null);
-		if(PremiumServices == 1)
-			return (int) (getTemplate().getRewardSp() * rateSp * Config.RATE_SP * Config.PREMIUM_SERVICES_MULTIPLIER_SP); 
-		else
-			return (int) (getTemplate().getRewardSp() * rateSp * Config.RATE_SP);
+		return (int) (getTemplate().getRewardSp() * rateSp * Config.RATE_SP);
 	}
 
 	/**
