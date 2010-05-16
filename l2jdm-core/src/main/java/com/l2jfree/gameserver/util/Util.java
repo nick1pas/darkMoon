@@ -457,11 +457,12 @@ public final class Util
 	 */
 	public static void printSection(String s)
 	{
-		s = "={ " + s + " }";
+		s = "\n\n " + s;
 		
-		while (s.length() < 160)
-			s = "-" + s;
+		while (s.length() < 77)
+			s = s + " -";
 		
+		s = s + "\n";
 		L2Config.out.println(s);
 	}
 	

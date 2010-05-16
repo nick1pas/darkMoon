@@ -61,6 +61,7 @@ import com.l2jfree.gameserver.network.serverpackets.ExBasicActionList;
 import com.l2jfree.gameserver.network.serverpackets.ExGetBookMarkInfoPacket;
 import com.l2jfree.gameserver.network.serverpackets.ExNotifyBirthDay;
 import com.l2jfree.gameserver.network.serverpackets.ExStorageMaxCount;
+import com.l2jfree.gameserver.network.serverpackets.ExBrPremiumState;
 import com.l2jfree.gameserver.network.serverpackets.FriendList;
 import com.l2jfree.gameserver.network.serverpackets.HennaInfo;
 import com.l2jfree.gameserver.network.serverpackets.ItemList;
@@ -138,6 +139,10 @@ public class EnterWorld extends L2GameClientPacket
 		sendPacket(new ItemList(activeChar, false));
 		activeChar.getMacroses().sendUpdate();
 		sendPacket(new ShortCutInit(activeChar));
+		
+		// Premium Services
+sendPacket(new ExBrPremiumState(activeChar.getObjectId(), activeChar.getPremiumServices()));
+		
 		activeChar.sendSkillList();
 		sendPacket(SystemMessageId.WELCOME_TO_LINEAGE);
 		if (Config.SERVER_AGE_LIM >= 18 || Config.SERVER_PVP)

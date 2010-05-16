@@ -371,13 +371,10 @@ public final class L2PcInstance extends L2Playable
 	private static final String	GET_CREATION_DATE				= "SELECT lastClaim,birthDate FROM character_birthdays WHERE charId=?";
 	private static final String	CLAIM_CREATION_DAY				= "UPDATE character_birthdays SET lastClaim=? WHERE charId=?";
 
-	/*
-	*	by Apall (08.05.10)
-	*	Premium Services SQL String Definitions:
-	*/
+	// Premium Services 
 	private static final String INSERT_PREMIUM_SERVICES = "INSERT INTO account_premium (account_name,premium_services,premium_expires) values(?,?,?)"; 
 	private static final String UPDATE_PREMIUM_SERVICES = "UPDATE account_premium SET premium_services=?,premium_expires=? WHERE account_name=?";	
-	private static final String RESTORE_PREMIUM_SERVICES = "SELECT premium_services,premium_expires FROM account_premium WHERE account_name=?"; 
+	private static final String SELECT_PREMIUM_SERVICES = "SELECT premium_services,premium_expires FROM account_premium WHERE account_name=?"; 	
 	
 	
 	public static final int		REQUEST_TIMEOUT					= 15;
@@ -398,7 +395,7 @@ public final class L2PcInstance extends L2Playable
 		SkillTreeTable.getInstance().getExpertiseLevel(4), // A
 		SkillTreeTable.getInstance().getExpertiseLevel(5), // S
 		SkillTreeTable.getInstance().getExpertiseLevel(6), // S80
-		SkillTreeTable.getInstance().getExpertiseLevel(7)  // S84
+		SkillTreeTable.getInstance().getExpertiseLevel(7)  //S84
 	};
 
 	private static final int[] COMMON_CRAFT_LEVELS = { 5, 20, 28, 36, 43, 49, 55, 62 };
@@ -631,7 +628,7 @@ public final class L2PcInstance extends L2Playable
 	private L2Weapon						_fistsWeaponItem;
 
 	private long							_uptime;
-	private final String					_accountName;
+	private final String							_accountName;
 
 	private Map<Integer, String>			_chars;
 
@@ -6633,11 +6630,9 @@ public final class L2PcInstance extends L2Playable
 				PcAppearance app = new PcAppearance(rset.getByte("face"), rset.getByte("hairColor"), rset.getByte("hairStyle"), female);
 
 				player = new L2PcInstance(objectId, template, rset.getString("account_name"), app);
-				/*
-				*	by Apall (08.05.10)
-				*	restorePremiumServices()
-				*/
-				restorePremiumServices(player, rset.getString("account_name"));
+				
+				// Premium Services
+				updatePremiumServicesState(player, rset.getString("account_name"));
 				
 				player.setName(rset.getString("char_name"));
 				player._lastAccess = rset.getLong("lastAccess");
@@ -14351,29 +14346,29 @@ public final class L2PcInstance extends L2Playable
 		}
 	}
 	
+	// Premium Services
 	/*
-	*	by Apall (08.05.10)
-	*	Put current account in table "account_premium"
-	*/
-	private void createPremiumServices() 
+	*	makePremiumServicesAvailable()
+	*	Puts current account in 'account_premium' table
+	*/	
+	private void makePremiumServicesAvailable() 
 	{ 
-		Connection con = null; 
+		Connection conn = null; 
 		try 
 		{ 
-			con = L2DatabaseFactory.getInstance().getConnection(); 
-			// INSERT_PREMIUM_SERVICES = "INSERT INTO account_premium (account_name,premium_services,premium_expires) values(?,?,?)"; */
-			PreparedStatement statement = con.prepareStatement(INSERT_PREMIUM_SERVICES); 
-			// Prepare statement for query:
+			conn = L2DatabaseFactory.getInstance().getConnection(); 
+
+			PreparedStatement statement = conn.prepareStatement(INSERT_PREMIUM_SERVICES); 
+			
 			statement.setString(1, _accountName); 
 			statement.setInt(2, 0); 
 			statement.setLong(3, 0);   
-			// Now execute prepared:
 			statement.executeUpdate(); 
 			statement.close(); 
 		} 
 		catch (Exception e) 
 		{ 
-			_log.warn("createPremiumServices() error: could not insert char data in: " + e); 
+			_log.warn("Could not make Premium Services available for " + _accountName + ". " + e); 
 			e.printStackTrace(); 
 			return; 
 		} 
@@ -14381,28 +14376,31 @@ public final class L2PcInstance extends L2Playable
 		{ 
 			try 
 			{ 
-				if (con != null) 
-					con.close(); 
+				if (conn != null)
+				{
+					conn.close(); 
+				}
 			} 
 			catch (SQLException e) 
 			{ 
 				e.printStackTrace(); 
 			} 
 		} 
-	} 
-	
+	} 		
+	// Premium Services
 	/*
-	*	by Apall (08.05.10)
+	*	disablePremiumServices()
 	*	Disable premium service for some account
 	*/
 	private static void disablePremiumServices(String account) 
 	{ 
-		Connection con = null; 
+		Connection conn = null; 
 		try 
 		{ 
-			con = L2DatabaseFactory.getInstance().getConnection(); 
-			/* UPDATE_PREMIUM_SERVICES = "UPDATE account_premium SET premium_services=?,premium_expires=? WHERE account_name=?"; */	
-			PreparedStatement statement = con.prepareStatement(UPDATE_PREMIUM_SERVICES); 
+			conn = L2DatabaseFactory.getInstance().getConnection(); 
+
+			PreparedStatement statement = conn.prepareStatement(UPDATE_PREMIUM_SERVICES); 
+			// Set up 'premium_services' and 'premium_expires' to null
 			statement.setInt(1, 0); 
 			statement.setLong(2, 0); 
 			statement.setString(3, account); 
@@ -14411,81 +14409,143 @@ public final class L2PcInstance extends L2Playable
 		} 
 		catch (SQLException e) 
 		{ 
-			_log.warn("disablePremiumServices(): could not change data for account " + account); 
+			_log.warn("Could not disable Premium Services for " + account + ". " + e); 
 		} 
 		finally 
 		{ 
 			try 
 			{ 
-				if (con != null) 
-					con.close(); 
+				if (conn != null) 
+				{
+					conn.close(); 
+				}
 			} 
 			catch (SQLException e) 
 			{ 
 				e.printStackTrace(); 
 			} 
 		}                
-	} 	
-	
+	}	
+	// Premium Services
 	/*
-	*	by Apall (08.05.10)
-	*	Restore premium service state for some account 
-	*/	
-	private static void restorePremiumServices(L2PcInstance player, String account) 
+	*	updatePremiumServicesState()
+	*	Updates Premium Services state from database to character and checks expires date of it
+	*/
+	private static void updatePremiumServicesState(L2PcInstance player, String account) 
 	{ 
-		boolean success = false;  
-		Connection con = null; 
+		// Account is already in 'account_premium' table?
+		boolean inTable = false;  
+		Connection conn = null; 
 		try 
 		{ 
-			con = L2DatabaseFactory.getInstance().getConnection(); 
-			/* RESTORE_PREMIUM_SERVICES = "SELECT premium_services,premium_expires FROM account_premium WHERE account_name=?"; */
-			PreparedStatement statement = con.prepareStatement(RESTORE_PREMIUM_SERVICES); 
+			conn = L2DatabaseFactory.getInstance().getConnection(); 
+			
+			PreparedStatement statement = conn.prepareStatement(SELECT_PREMIUM_SERVICES); 
 			statement.setString(1, account); 
 			ResultSet rset = statement.executeQuery(); 
+			
+			// Yes, account was found in 'account_premium' table
 			while (rset.next()) 
 			{ 
-				success = true; 
+				inTable = true; 
+				// Premium Services enabled for all
 				if (Config.PREMIUM_SERVICES_ENABLED)
 				{ 
 					// If Premium Services time for this account is expired
 					if (rset.getLong("premium_expires") <= System.currentTimeMillis())
 					{ 
-						// Disable Premium Services
+						// Disable Premium Services for this account
 						disablePremiumServices(account); 
 						player.setPremiumServices(0); 
 					} 
 					// Else restore Premium Services to state from SQL base
 					else 
+					{
 						player.setPremiumServices(rset.getInt("premium_services")); 
+					}
 				} 
-				// PREMIUM_SERVICES_ENABLED = False and character can not use Premium Services
+				// Premium Services disabled for all
 				else 
+				{
 					player.setPremiumServices(0); 
+				}
 			} 
+			
 			statement.close(); 
 
 		} 
 		catch (Exception e) 
 		{ 
-			_log.warn("restorePremiumServices(): could not restore Premium Services data for " + account + "."+e); 
+			_log.warn("Could not update Premium Services state for " + account + ". " + e); 
 			e.printStackTrace(); 
 		} 
 		finally 
 		{ 
 			try 
 			{ 
-				if (con != null) 
-					con.close(); 
+				if (conn != null) 
+				{
+					conn.close(); 
+				}
 			} 
 			catch (SQLException e) 
 			{ 
 				e.printStackTrace(); 
 			} 
 		} 
-		if (success == false) 
+		// This account is not in 'account_premium' yet? Put it now.
+		if (inTable == false) 
 		{ 
-			player.createPremiumServices(); 
+			player.makePremiumServicesAvailable(); 
 			player.setPremiumServices(0); 
 		} 
 	} 
+	/* 
+	*	Premium Services
+	*	This method returns success rate for drop with Premium Services (in percents)
+	*	
+	*	If player has no PS and he not party member, success rate is 0%
+	*	If player has PS and he not party member, success rate is 100%
+	*	If player party member, success rate is Nps * (100 / Nall) where:
+	*	-	Nps - number of party members that has premium services
+	*	- 	Nall - number of party members
+	*/
+	public float getPremiumServicesDropSuccessRate()
+	{
+		// Player is a not a perty member
+		if (!isInParty())
+		{
+			// Player use Premium Services
+			if (this.getPremiumServices() == 1)
+			{
+				return 100;
+			}
+			// Player don't use Premium Services
+			else
+			{
+				return 0;
+			}
+		}
+		// Player is a party member
+		else
+		{
+			L2Party party = getParty();
+			if (party != null)
+			{
+				float successRate = party.getPartyPremiumServicesDropSuccessRate();
+				return successRate;
+			}
+		}
+		// Default
+		return 0;
+	}
+	
+	public boolean getPremiumServicesDropSuccess()
+	{
+		if (Rnd.get(100) < getPremiumServicesDropSuccessRate())
+		{
+			return true;
+		}
+		return false;
+	}
 }

@@ -36,16 +36,17 @@ public final class CoreInfo
 	
 	public static void showStartupInfo()
 	{
-		System.out.println("L2DarkMoon [starting version: " + coreVersion.getVersionNumber() + "]");
+		System.out.println("");
+		System.out.println("Lineage II: Gracia Final");
+		System.out.println("Starting version: " + coreVersion.getVersionNumber());
 	}
 	
 	public static final void versionInfo(L2PcInstance activeChar)
 	{
-		activeChar.sendMessage("Welcome to");
-		activeChar.sendMessage("l2DarkMoon " + getVersionInfo());
-		activeChar.sendMessage("Chaotic Throne: Gracia Final");
-		activeChar.sendMessage("");
-		activeChar.sendMessage("");
+		
+		activeChar.sendMessage("Welcome to l2DarkMoon ");
+	        activeChar.sendMessage("" + getVersionInfo());
+	        activeChar.sendMessage("Chaotic Throne: Gracia Final");
 	}
 	
 	public static String getVersionInfo()
@@ -56,9 +57,9 @@ public final class CoreInfo
 	public static String[] getFullVersionInfo()
 	{
 		return new String[] {
-				"l2jdm-core   :    " + coreVersion.fullVersionInfo,
-				"l2j-commons  :    " + commonsVersion.fullVersionInfo,
-				"l2j-mmocore  :    " + mmocoreVersion.fullVersionInfo };
+				"l2j-core    :  " + coreVersion.fullVersionInfo,
+				"l2j-commons :  " + commonsVersion.fullVersionInfo,
+				"l2j-mmocore :  " + mmocoreVersion.fullVersionInfo };
 	}
 	
 	private static final class CoreVersion extends Version
